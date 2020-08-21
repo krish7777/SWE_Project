@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.i("MainActivity","testing git here");
     }
-<<<<<<< HEAD
 
     @Override
     public void onStart(){
