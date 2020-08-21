@@ -16,6 +16,7 @@ app.use(cors())
 
 app.get('/test', (req, res) => {
     console.log(req.body)
+    console.log(req.get('Authorization'))
     console.log("test route hit")
     res.json({ "yes": "no" })
 })
