@@ -20,3 +20,10 @@ mongoose.connect(MONGO_URI, {
 }).catch(err => {
     console.log("error with connecting db")
 })
+
+const donorRouter = require('./routes/donor');
+const organisationRouter = require('./routes/organisation');
+
+app.use('/donor',donorRouter);
+app.use('/organisation',organisationRouter);
+
