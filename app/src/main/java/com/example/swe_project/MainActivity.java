@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.i("MainActivity","testing git here");
-        
     }
+<<<<<<< HEAD
 
     @Override
     public void onStart(){
@@ -96,3 +96,4 @@ public class MainActivity extends AppCompatActivity {
          */
     }
 }
+
