@@ -16,6 +16,7 @@ app.use(cors())
 
 app.get('/test', (req, res) => {
     console.log(req.body)
+    console.log(req.get('Authorization'))
     console.log("test route hit")
     res.json({ "yes": "no" })
 })
@@ -34,6 +35,7 @@ app.use((error, req, res, next) => {// Error Handling
 const MONGO_URI = "mongodb://127.0.0.1:27017/swe_project" // TEST DB
 // const MONGO_URI = "mongodb+srv://arpit:arpit@cluster0.lr4ce.mongodb.net/techsite?retryWrites=true&w=majority" -- ORIGINAL DB
 
+// const MONGO_URI = "mongodb+srv://arpit:arpit@cluster0.lr4ce.mongodb.net/techsite?retryWrites=true&w=majority"
 mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
