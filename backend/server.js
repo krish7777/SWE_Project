@@ -5,12 +5,12 @@ const mongoose = require('mongoose');
 
 
 const app = express();
-const PORT = process.env.PORT || 3900
+const PORT = process.env.PORT || 8000
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
-app.use(cors())
-
-mongoose.connect('MONGO_URI', {
+app.use(cors());
+const MONGO_URI = "mongodb+srv://arpit:arpit@cluster0.lr4ce.mongodb.net/techsite?retryWrites=true&w=majority"
+mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(res => {
