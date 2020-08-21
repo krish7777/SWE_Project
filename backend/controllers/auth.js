@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const Donor = require('../models/donor');
-const Ngo = require('../models/ngo')
+const Organisation = require('../models/organisation')
 exports.registerDonor = async (req, res, next) => {
     const { email, name, password, contactNumber } = req.body;
     const checkExistingDonor = await Donor.findOne({ email: email })
@@ -32,14 +32,14 @@ exports.registerDonor = async (req, res, next) => {
     }
 };
 
-exports.registerNgo = async (req, res, next) => {
+exports.registerOrganisation = async (req, res, next) => {
     const { email, name, password, contactNumber, address, location } = req.body;
-    const checkExistingNgo = await Ngo.findOne({ email: email })
-    if (!checkExistingNgo)
+    const checkExistingOrganisation = await Organisation.findOne({ email: email })
+    if (!checkExistingOrganisation)
         try {
             const hashedPw = await bcrypt.hash(password, 12);
 
-            const ngo = new Ngo({
+            const organisation = new Organisation({
                 email: email,
                 password: hashedPw,
                 name: name,
@@ -47,9 +47,9 @@ exports.registerNgo = async (req, res, next) => {
                 address: address,
                 location: location
             });
-            const result = await ngo.save();
+            const result = await organisation.save();
             console.log("result", result)
-            res.status(201).json({ message: 'Ngo created!', userId: result._id });
+            res.status(201).json({ message: 'Organisation created!', userId: result._id });
         } catch (err) {
             if (!err.statusCode) {
                 err.statusCode = 500;
@@ -57,7 +57,7 @@ exports.registerNgo = async (req, res, next) => {
             next(err);
         }
     else {
-        const error = new Error('Ngo already exists');
+        const error = new Error('Organisation already exists');
         error.statusCode = 401;
         next(error);
     }
@@ -95,30 +95,30 @@ exports.loginDonor = async (req, res, next) => {
     }
 }
 
-exports.loginNgo = async (req, res, next) => {
+exports.loginOrganisation = async (req, res, next) => {
     const { email, password } = req.body;
     try {
-        const ngo = await Ngo.findOne({ email: email })
-        if (!ngo) {
-            const error = new Error('A ngo with this email could not be found')
+        const organisation = await Organisation.findOne({ email: email })
+        if (!organisation) {
+            const error = new Error('An organisation with this email could not be found')
             error.statusCode = 401;
             throw error;
         }
-        const isEqual = await bcrypt.compare(password, ngo.password);
+        const isEqual = await bcrypt.compare(password, organisation.password);
         if (!isEqual) {
             const error = new Error('Wrong password!');
             error.statusCode = 401;
             throw error;
         }
         const token = jwt.sign({
-            email: ngo.email,
-            userId: ngo._id.toString(),
-            role: 'Ngo'
+            email: organisation.email,
+            userId: organisation._id.toString(),
+            role: 'Organisation'
         },
             'secret',
             { expiresIn: '24h' }
         );
-        res.status(200).json({ token: token, userId: ngo._id.toString() })
+        res.status(200).json({ token: token, userId: organisation._id.toString() })
     } catch (err) {
         if (!err.statusCode) {
             err.statusCode = 500;

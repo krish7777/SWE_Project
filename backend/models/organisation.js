@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const ngoSchema = new Schema({
+const organisationSchema = new Schema({
     email: {
         type: String,
         required: true
@@ -33,4 +33,4 @@ const ngoSchema = new Schema({
     //ADDITIONAL FIELDS CAN BE ADDED BELOW
 });
 
-module.exports = mongoose.model('Ngo', ngoSchema);
+module.exports = mongoose.model('Organisation', organisationSchema);

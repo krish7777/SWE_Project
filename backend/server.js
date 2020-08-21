@@ -7,13 +7,17 @@ const authRoutes = require('./routes/auth')
 
 
 const app = express();
-const PORT = process.env.PORT || 3900
+const PORT = process.env.PORT || 8000
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(cors())
 
-app.get('/', (req, res) => {
-    res.send("testing... hello world")
+
+
+app.get('/test', (req, res) => {
+    console.log(req.body)
+    console.log("test route hit")
+    res.json({ "yes": "no" })
 })
 
 app.use('/auth', authRoutes)
@@ -27,8 +31,9 @@ app.use((error, req, res, next) => {// Error Handling
 });
 
 
+const MONGO_URI = "mongodb://127.0.0.1:27017/swe_project"
 
-mongoose.connect('mongodb://127.0.0.1:27017/swe_project', {
+mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(res => {

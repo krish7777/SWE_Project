@@ -9,7 +9,7 @@ const donationSchema = new Schema({
     },
     receiver: {
         type: Schema.Types.ObjectId,
-        ref: 'Ngo',
+        ref: 'Organisation',
         required: true
     },
     timestamp: {
