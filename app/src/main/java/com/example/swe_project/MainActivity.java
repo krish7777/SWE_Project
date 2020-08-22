@@ -2,8 +2,10 @@ package com.example.swe_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -93,6 +95,11 @@ public class MainActivity extends AppCompatActivity {
         };
         VolleySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
          */
+    }
+
+    public void openuseractivity(View view) {
+        Intent intent = new Intent(this, UserActivity.class);
+        startActivity(intent);
     }
 }
 
