@@ -15,7 +15,7 @@ const donorSchema = new Schema({
         required: true
     },
     contactNumber: {
-        type: Number,
+        type: String,
         required: true
     },
     peopleFed: Number,

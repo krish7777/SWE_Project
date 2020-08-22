@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const Donor = require('../models/donor');
 const Organisation = require('../models/organisation')
 exports.registerDonor = async (req, res, next) => {
+	console.log(req.body);
     const { email, name, password, contactNumber } = req.body;
     const checkExistingDonor = await Donor.findOne({ email: email })
     if (!checkExistingDonor)
@@ -64,6 +65,8 @@ exports.registerOrganisation = async (req, res, next) => {
 };
 
 exports.loginDonor = async (req, res, next) => {
+
+	console.log(req.body);
     const { email, password } = req.body;
     try {
         const donor = await Donor.findOne({ email: email })
