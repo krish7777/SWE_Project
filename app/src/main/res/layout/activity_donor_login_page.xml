@@ -4,62 +4,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".donor_login_page">
-<LinearLayout
-    android:id="@+id/layer1"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="30dp"
-    android:orientation="horizontal"
-    >
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="USERNAME:"
-        android:padding="8dp"
-        android:layout_margin="8dp"
-        />
+    tools:context=".donor_login_page"
+    android:alpha="0.93"
+    android:background="@drawable/background_login">
 
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:padding="8dp" />
-
-</LinearLayout>
     <LinearLayout
-        android:id="@+id/layer2"
-        android:layout_below="@id/layer1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/inner_layout_design_login"
+        android:orientation="vertical"
+        android:padding="10dp">
+
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="PASSWORD:"
-            android:padding="8dp"
-            android:layout_margin="8dp"
-            />
+            android:text="Welcome back, enter your login credentials to jump right in!"
+            android:fontFamily="sans-serif-black"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:padding="3dp"
+            android:textColor="@android:color/black"
+            android:alpha="0.75"
+            tools:visibility="visible" />
+        <EditText
+            android:id="@+id/emailid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:alpha="1.5"
+            android:ems="10"
+            android:hint="Email ID"
+            android:inputType="textEmailAddress"
+            android:padding="8dp" />
 
         <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
+            android:alpha="1.5"
+            android:hint="password"
+            android:inputType="textPassword"
             android:padding="8dp" />
-    </LinearLayout>
 
-    <Button
-        android:id="@+id/loginbutton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/layer2"
-        android:padding="16dp"
-        android:layout_marginTop="15dp"
-        android:layout_margin="16dp"
-        android:onClick="checkcredentials"
-        android:text="Login"
-        />
+        <Button
+            android:id="@+id/loginbutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/button_layout_login"
+            android:onClick="checkcredentials"
+            android:padding="16dp"
+            android:text="Login"
+
+            />
+
+    </LinearLayout>
 </RelativeLayout>

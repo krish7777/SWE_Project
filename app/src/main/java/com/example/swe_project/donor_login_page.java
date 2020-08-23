@@ -9,6 +9,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -20,22 +21,30 @@ import org.json.JSONObject;
 import java.util.HashMap;
 
 public class donor_login_page extends AppCompatActivity {
-    private EditText username;
+    private EditText emailid;
     private EditText password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donor_login_page);
-        username = findViewById(R.id.username);
+        emailid = findViewById(R.id.emailid);
         password = findViewById(R.id.password);
 
     }
+    public boolean isEmailValid(CharSequence email) {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
 
     public void checkcredentials(View view) {
+        String getemailid = emailid.getText().toString();
+        if (!isEmailValid(getemailid)){
+            Toast.makeText(this,"Invalid Email ID",Toast.LENGTH_SHORT).show();
+            return;
+        }
         String url = "http://192.168.43.60:8000/auth/login/donor";
         final HashMap<String, String> params = new HashMap<String, String>();
         params.put("password",password.getText().toString());
-        params.put("email",username.getText().toString());
+        params.put("email",getemailid);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, new JSONObject(params), new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
