@@ -39,7 +39,7 @@ public class donor_login_page extends AppCompatActivity {
         String getemailid = emailid.getText().toString();
         if (!isEmailValid(getemailid)){
             Toast.makeText(this,"Invalid Email ID",Toast.LENGTH_SHORT).show();
-            return;
+            //return;
         }
         String url = "http://192.168.43.60:8000/auth/login/donor";
         final HashMap<String, String> params = new HashMap<String, String>();
@@ -59,10 +59,8 @@ public class donor_login_page extends AppCompatActivity {
                     editor.putString("token", token);
                     editor.putString("id",id);
                     boolean commit = editor.commit();
-                    Intent intent = new Intent(donor_login_page.this,DonorActivity.class);
+                    Intent intent = new Intent(donor_login_page.this,UserActivity.class);
                     startActivity(intent);
-
-
                 } catch (Exception e) {
 
                     e.printStackTrace();

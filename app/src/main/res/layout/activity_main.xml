@@ -8,6 +8,7 @@
     tools:context=".MainActivity"
     >
     <TextView
+
         android:layout_marginTop="100dp"
 
         android:id="@+id/front_page_text"
@@ -39,6 +40,7 @@
         android:id="@+id/organisation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:layout_below="@+id/donor"
         android:layout_centerHorizontal="true"
         android:padding="16dp"

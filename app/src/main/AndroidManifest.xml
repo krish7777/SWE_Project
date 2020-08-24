@@ -15,6 +15,10 @@
         <activity android:name=".DonorActivity" />
         <activity android:name=".donor_login_page" />
         <activity android:name=".createdonor" />
+        <activity
+            android:name=".UserActivity"
+            android:label="@string/title_activity_user"></activity>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
