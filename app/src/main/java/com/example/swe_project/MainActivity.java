@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.i("MainActivity", "testing git here");
-
+       // getActionBar().hide();
+        getSupportActionBar().hide();
     }
 
     public void donorlogin(View view) {

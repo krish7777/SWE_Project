@@ -4,25 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".entrypage">
+    android:background="@drawable/check2"
+    tools:context=".MainActivity"
+    >
+    <TextView
+        android:layout_marginTop="100dp"
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="381dp"
-        android:layout_height="240dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
-        app:srcCompat="@drawable/front_photo" />
-
+        android:id="@+id/front_page_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Help feed a soul, join us on our mission of zero hunger"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/baloobold"
+        android:textColor="#d61a7b"
+        />
     <Button
         android:id="@+id/donor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView2"
+        android:layout_below="@+id/front_page_text"
         android:layout_centerHorizontal="true"
         android:layout_margin="16dp"
         android:onClick="donorlogin"
         android:padding="16dp"
+        android:alpha="0.8"
+        android:background="@drawable/button_layout_login"
         android:text="Enter as DONOR" />
 
     <Button
@@ -33,6 +43,8 @@
         android:layout_centerHorizontal="true"
         android:padding="16dp"
         android:layout_margin="16dp"
+        android:alpha=".8"
+        android:background="@drawable/button_layout_login"
         android:text="Enter as Organisation" />
 
     <Button
@@ -42,6 +54,8 @@
         android:layout_below="@+id/organisation"
         android:layout_centerHorizontal="true"
         android:padding="16dp"
+        android:alpha="0.8"
         android:layout_margin="16dp"
+        android:background="@drawable/button_layout_login"
         android:text="Create a new ID" />
 </RelativeLayout>
