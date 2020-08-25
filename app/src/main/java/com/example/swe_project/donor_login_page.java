@@ -29,8 +29,17 @@ public class donor_login_page extends AppCompatActivity {
         setContentView(R.layout.activity_donor_login_page);
         emailid = findViewById(R.id.emailid);
         password = findViewById(R.id.password);
-
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(AuthChecker.authChecker(this)==true){
+            Intent intent = new Intent(donor_login_page.this,UserActivity.class);
+            startActivity(intent);
+        }
+    }
+
     public boolean isEmailValid(CharSequence email) {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }

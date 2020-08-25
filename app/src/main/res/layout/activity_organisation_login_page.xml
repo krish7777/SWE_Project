@@ -31,7 +31,7 @@
             android:alpha="0.75"
             tools:visibility="visible" />
         <EditText
-            android:id="@+id/login_org_emailId"
+            android:id="@+id/login_org_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -61,7 +61,7 @@
             android:layout_margin="16dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/button_layout_login"
-
+            android:onClick="loginOrganisation"
             android:padding="16dp"
             android:text="Login"
 

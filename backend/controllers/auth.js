@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const Donor = require('../models/donor');
 const Organisation = require('../models/organisation')
 exports.registerDonor = async (req, res, next) => {
-	console.log(req.body);
+    console.log(req.body);
     const { email, name, password, contactNumber } = req.body;
     const checkExistingDonor = await Donor.findOne({ email: email })
     if (!checkExistingDonor)
@@ -34,7 +34,7 @@ exports.registerDonor = async (req, res, next) => {
 };
 
 exports.registerOrganisation = async (req, res, next) => {
-    const { email, name, password, contactNumber, address, location } = req.body;
+    let { email, name, password, contactNumber, address, latitude, longitude } = req.body;
     const checkExistingOrganisation = await Organisation.findOne({ email: email })
     if (!checkExistingOrganisation)
         try {
@@ -46,7 +46,8 @@ exports.registerOrganisation = async (req, res, next) => {
                 name: name,
                 contactNumber: contactNumber,
                 address: address,
-                location: location
+                latitude: latitude,
+                longitude: longitude
             });
             const result = await organisation.save();
             console.log("result", result)
@@ -66,7 +67,7 @@ exports.registerOrganisation = async (req, res, next) => {
 
 exports.loginDonor = async (req, res, next) => {
 
-	console.log(req.body);
+    console.log(req.body);
     const { email, password } = req.body;
     try {
         const donor = await Donor.findOne({ email: email })
@@ -100,6 +101,7 @@ exports.loginDonor = async (req, res, next) => {
 
 exports.loginOrganisation = async (req, res, next) => {
     const { email, password } = req.body;
+    console.log(req.body);
     try {
         const organisation = await Organisation.findOne({ email: email })
         if (!organisation) {

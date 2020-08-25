@@ -14,6 +14,15 @@ public class RegistrationHomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registration_home);
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(AuthChecker.authChecker(this)==true){
+            Intent intent = new Intent(this,UserActivity.class);
+            startActivity(intent);
+        }
+    }
+
     public void openDonorRegistration(View view) {
         Intent intent = new Intent(this,donor_registration_page.class);
         startActivity(intent);

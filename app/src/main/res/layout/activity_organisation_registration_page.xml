@@ -59,11 +59,38 @@
         android:hint="Address"
         />
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/organisation_reg_address"
+        android:id="@+id/organisation_reg_location"
+        android:padding="16dp"
+        android:layout_margin="16dp"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="3"
+            android:id="@+id/coordinates"
+            android:text="Location" />
+
+        <Button
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/ic_discover_black_24dp"
+            android:onClick="getLocation" />
+    </LinearLayout>
+
     <Button
         android:id="@+id/donor_reg_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/organisation_reg_address"
+        android:layout_below="@id/organisation_reg_location"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
