@@ -34,6 +34,16 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void organisationlogin(View view){
+        Intent intent= new Intent(this, organisation_login_page.class);
+        startActivity(intent);
+    }
+
+    public void openRegistrationHome(View view){
+        Intent intent =new Intent(this,RegistrationHomeActivity.class);
+        startActivity(intent);
+    }
+
 
 }
 
