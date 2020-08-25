@@ -3,6 +3,9 @@
     package="com.example.swe_project">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
 
     <application
         android:allowBackup="true"
@@ -15,6 +18,17 @@
         <activity android:name=".DonorActivity" />
         <activity android:name=".donor_login_page" />
         <activity android:name=".createdonor" />
+
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+
+        <activity android:name=".MainActivity2"
+            android:parentActivityName=".MapsActivity">
+        </activity>
+
         <activity
             android:name=".UserActivity"
             android:label="@string/title_activity_user"></activity>
