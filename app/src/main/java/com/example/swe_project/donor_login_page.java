@@ -29,8 +29,17 @@ public class donor_login_page extends AppCompatActivity {
         setContentView(R.layout.activity_donor_login_page);
         emailid = findViewById(R.id.emailid);
         password = findViewById(R.id.password);
-
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(AuthChecker.authChecker(this)==true){
+            Intent intent = new Intent(donor_login_page.this,UserActivity.class);
+            startActivity(intent);
+        }
+    }
+
     public boolean isEmailValid(CharSequence email) {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
@@ -41,7 +50,7 @@ public class donor_login_page extends AppCompatActivity {
             Toast.makeText(this,"Invalid Email ID",Toast.LENGTH_SHORT).show();
             //return;
         }
-        String url = "http://192.168.43.60:8000/auth/login/donor";
+        String url = "http://192.168.1.2:8000/auth/login/donor";
         final HashMap<String, String> params = new HashMap<String, String>();
         params.put("password",password.getText().toString());
         params.put("email",getemailid);

@@ -22,8 +22,12 @@ const organisationSchema = new Schema({
         type: String,
         required: true
     },
-    location: {
-        type: String,// TO BE DETERMINED
+    latitude: {
+        type: Number,
+        required: true
+    },
+    longitude: {
+        type: Number,
         required: true
     },
     donationsReceived: [{

@@ -29,8 +29,27 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(AuthChecker.authChecker(this)==true){
+            Intent intent = new Intent(this,UserActivity.class);
+            startActivity(intent);
+        }
+    }
+
     public void donorlogin(View view) {
         Intent intent = new Intent(this,donor_login_page.class);
+        startActivity(intent);
+    }
+
+    public void organisationlogin(View view){
+        Intent intent= new Intent(this, organisation_login_page.class);
+        startActivity(intent);
+    }
+
+    public void openRegistrationHome(View view){
+        Intent intent =new Intent(this,RegistrationHomeActivity.class);
         startActivity(intent);
     }
 
