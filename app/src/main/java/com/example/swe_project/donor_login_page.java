@@ -50,7 +50,7 @@ public class donor_login_page extends AppCompatActivity {
             Toast.makeText(this,"Invalid Email ID",Toast.LENGTH_SHORT).show();
             //return;
         }
-        String url = "http://192.168.1.7:8000/auth/login/donor";
+        String url = "http://192.168.43.60:8000/auth/login/donor";
         final HashMap<String, String> params = new HashMap<String, String>();
         params.put("password",password.getText().toString());
         params.put("email",getemailid);
