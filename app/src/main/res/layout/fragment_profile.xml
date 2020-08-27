@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".ui.profile.ProfileFragment"
-    android:id="@+id/linearlayout">
-
+    android:background="@color/login_button_endColor"
+    android:orientation="vertical">
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
     <RelativeLayout
+        android:id="@+id/layer1"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:background="@color/colorAccent"
@@ -17,99 +20,58 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+    <ImageView
+        android:id="@+id/profile_photo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/entry_photo_check1"
+        />
+    <TextView
+        android:id="@+id/full_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:fontFamily="@font/baloobold"
+        android:includeFontPadding="false"
+        android:layout_toRightOf="@id/profile_photo"
+        android:text="Arpit Bandejiya"
+        android:textColor="@android:color/black"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/full_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:fontFamily="@font/baloobold"
-            android:includeFontPadding="false"
-            android:text="Arpit Bandejiya"
-            android:textColor="@android:color/black"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+    <TextView
+        android:id="@+id/emailid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/full_name"
+        android:layout_toRightOf="@id/profile_photo"
+        android:layout_marginLeft="10dp"
+        android:includeFontPadding="false"
+        android:text="arpitbandejiya@gmail.com"
+        android:textSize="14dp"
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/full_name"
-            android:layout_marginLeft="10dp"
-            android:includeFontPadding="false"
-            android:text="Arpit Bandejiya"
-            android:textSize="14dp"
-
-            />
-
-
+        />
     </RelativeLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="150dp"
-        android:padding="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="0dp"
-            android:layout_height="125dp"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/profile_page_card"
-            app:cardElevation="10dp">
-
+    <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_marginTop="-50dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="120dp">
             <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="-10dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="0dp"
+                android:layout_margin="15dp"
+                android:layout_weight="1"
                 android:padding="5dp">
-
-                <TextView
-                    android:id="@+id/food_donated_count"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/profile_page_card"
                     android:layout_centerInParent="true"
-                    android:fontFamily="@font/baloobold"
-                    android:includeFontPadding="false"
-                    android:text="123"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/food_donated"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/food_donated_count"
-                    android:layout_centerHorizontal="true"
-
-                    android:fontFamily="@font/baloobold"
-                    android:includeFontPadding="false"
-                    android:text="Food dn"
-                    android:textSize="14sp" />
-
-
-            </RelativeLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="0dp"
-            android:layout_height="125dp"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/profile_page_card"
-            app:cardElevation="10dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="-10dp"
-                android:padding="5dp">
-
+                    android:orientation="vertical">
                 <TextView
                     android:id="@+id/food_fed_count"
                     android:layout_width="wrap_content"
@@ -118,6 +80,8 @@
                     android:fontFamily="@font/baloobold"
                     android:includeFontPadding="false"
                     android:text="123"
+                    android:layout_marginTop="12dp"
+                    android:layout_gravity="center_horizontal"
                     android:textSize="20sp" />
 
                 <TextView
@@ -126,52 +90,79 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/food_fed_count"
                     android:layout_centerHorizontal="true"
-
+                    android:layout_gravity="center"
                     android:fontFamily="@font/baloobold"
                     android:includeFontPadding="false"
                     android:text="People fed"
-                    android:textSize="14sp" />
 
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
             </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="0dp"
+                android:layout_margin="15dp"
 
-        </com.google.android.material.card.MaterialCardView>
+                android:layout_weight="1"
 
-    </LinearLayout>
+                android:padding="5dp">
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/profile_page_card"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+                <TextView
+                    android:id="@+id/food_donated_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/baloobold"
+                    android:includeFontPadding="false"
+                    android:layout_marginTop="12dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="123"
+                    android:textSize="20sp" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+                <TextView
+                    android:id="@+id/food_donated"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="@font/baloobold"
+                    android:includeFontPadding="false"
+                    android:textColor="@android:color/black"
+                    android:text="Food dn"
+                    android:textSize="14sp" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </RelativeLayout>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    <TextView
+        android:id="@+id/heading"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-        android:layout_marginTop="400dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_login"
+        android:fontFamily="@font/baloobold"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="Recently Contacted Organisations"
+        android:textColor="@android:color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/heading"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            android:fontFamily="@font/baloobold"
-            android:gravity="center"
-            android:includeFontPadding="false"
-            android:text="Recently Contacted Organisations"
-            android:textColor="@android:color/black"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewprofile"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/heading" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewprofile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_gradientmain"
+        app:layout_constraintTop_toBottomOf="@id/layer1" />
+</LinearLayout>
