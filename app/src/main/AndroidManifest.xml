@@ -55,6 +55,9 @@
         <activity
             android:name=".UserActivity"
             android:label="@string/title_activity_user" />
+        <activity
+            android:name=".OrgActivity"
+            android:label="@string/title_activity_user" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
