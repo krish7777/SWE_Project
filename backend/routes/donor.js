@@ -9,10 +9,7 @@ router.post('/upload-profile-pic', isAuth, uploadDonorProfilePic)
 
 router.get('/get-details', isAuth, getDonor)
 
-const DonorModel = require('../models/donor')
 const OrganisationModel = require('../models/organisation')
-
-const isAuth = require('../middlewares/isAuth');
 
 router.post('/nearbyorganisations', (req, res) => {
 	console.log("lets give the nearby organisation")

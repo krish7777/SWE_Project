@@ -2,6 +2,7 @@ const Donor = require('../models/donor');
 
 exports.getDonor = async (req, res, next) => {
     let id = req.userId;
+    console.log("hereeeee")
     try {
         const donor = await Donor.findById(id).select("-password");
         console.log("res", donor)

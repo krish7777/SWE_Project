@@ -57,13 +57,21 @@ import java.util.Map;
 import static android.app.Activity.RESULT_OK;
 
 public class ProfileFragment extends Fragment {
+
+
     RecyclerView recyclerview;
     profileaAdapter adapter;
     ArrayList<profileData> items;//in this arraylist data is to be loaded from server to be shown in cards
     LinearLayout linearLayout;
     private ImageView profileImageView;
 
-    private static final String ROOT_URL = "http://192.168.1.5:8000/upload";
+
+
+
+
+
+
+
     private static final int REQUEST_PERMISSIONS = 100;
     private static final int PICK_IMAGE_REQUEST =1 ;
 
@@ -76,10 +84,16 @@ public class ProfileFragment extends Fragment {
     private TextView peopleFedView;
     private TextView moneyRaisedView;
     private Button logoutButton;
-    String url = "http://192.168.1.5:8000/donor/get-details";
-    String imageUploadUrl="http://192.168.1.5:8000/donor/upload-profile-pic";
+    String url = "http:192.168.1.5:8000/donor/get-details";
+    String imageUploadUrl="http:192.168.1.5:8000/donor/upload-profile-pic";
+    String ROOT_URL = "http:192.168.1.5:8000/upload";
 
     DonorData donorData;
+
+
+
+
+
 
 
     @Override
@@ -88,11 +102,17 @@ public class ProfileFragment extends Fragment {
         Log.d("profile","INNNN ONCREATEEEEE");
     }
 
+
+
+
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        //View root = inflater.inflate(R.layout.fragment_profile, container, false);
         Log.d("profile","first check");
         View root = inflater.inflate(R.layout.fragment_profile, container, false);
+
+
+
         Log.d("profile","second check");
         //linearLayout = (LinearLayout) root.findViewById(R.id.linearlayout);
 
@@ -123,6 +143,9 @@ public class ProfileFragment extends Fragment {
         });
 
         Log.d("Response","finished setting up views");
+
+
+
 
 
 
@@ -203,6 +226,8 @@ public class ProfileFragment extends Fragment {
 
         return root;
     }
+
+
 
 
     private void showFileChooser() {
@@ -370,4 +395,6 @@ public class ProfileFragment extends Fragment {
         items.add(new profileData("NGO name", "23 km", "bunny bhai", "9154862562", "have been feeding people since '98. Aim that no one sleeps hungry"));
 
     }
+
+
 }
