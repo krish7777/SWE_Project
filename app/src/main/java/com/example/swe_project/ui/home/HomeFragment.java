@@ -1,9 +1,11 @@
 package com.example.swe_project.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,6 +18,7 @@ import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
+import com.example.swe_project.DiscoverMapsActivity;
 import com.example.swe_project.R;
 import com.example.swe_project.ui.home.HomeAdapter;
 import com.example.swe_project.ui.home.HomeData;
@@ -28,6 +31,8 @@ public class HomeFragment extends Fragment {
     HomeAdapter adapter;
     ArrayList<HomeData> items;
 
+    //Button button;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
@@ -39,9 +44,25 @@ public class HomeFragment extends Fragment {
         adapter = new HomeAdapter(items);
         recyclerview.setAdapter(adapter);
 
+/*
+        button = (Button) root.findViewById(R.id.homeDonatebutton);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openActivity();
+
+            }
+        });
+*/
         return root;
     }
+/*
+    private void openActivity() {
+        Intent intent = new Intent(getActivity(), DiscoverMapsActivity.class);
 
+        startActivity(intent);
+    }
+*/
     private void initialiseitems() {
         items = new ArrayList<>();
         //here you will have to pull data from server and insert it based on distance from donor in this arraylist

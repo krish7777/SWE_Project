@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".organisation_registration_page">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -98,5 +109,11 @@
         android:onClick="registerOrganisation"
         android:padding="16dp"
         android:text="Register" />
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </RelativeLayout>

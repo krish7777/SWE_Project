@@ -1,6 +1,7 @@
 package com.example.swe_project.ui.discover;
 
 import android.content.Intent;
+
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -8,14 +9,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,6 +21,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.swe_project.AuthChecker;
 import com.example.swe_project.MainActivity;
+
 import com.example.swe_project.R;
 import com.example.swe_project.UserActivity;
 import com.example.swe_project.VolleySingleton;
@@ -44,6 +41,7 @@ public class DiscoverFragment extends Fragment {
     DiscoverAdapter adapter;
     ArrayList<DiscoverData> items;//in this arraylist data is to be loaded from server to be shown in cards
     JSONArray organisations;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_discover, container, false);
@@ -52,6 +50,7 @@ public class DiscoverFragment extends Fragment {
         items = new ArrayList<>();
         recyclerview = root.findViewById(R.id.recyclerViewdiscover);
         recyclerview.setLayoutManager(new LinearLayoutManager(root.getContext()));
+
         //params.put("password",password);
         //params.put("email",email);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, new JSONObject(params), new Response.Listener<JSONObject>() {
@@ -111,7 +110,9 @@ public class DiscoverFragment extends Fragment {
         return root;
     }
 
-    public void initialiseitems(){
+
+    private void initialiseitems() {
+        //here you will have to pull data from server and insert it based on distance from donor in this arraylist
 
         items.add(new DiscoverData("NGO name", "23 km", "bunny bhai", "9154862562", "have been feeding people since '98. Aim that no one sleeps hungry"));
         items.add(new DiscoverData("NGO name", "23 km", "bunny bhai", "9154862562", "have been feeding people since '98. Aim that no one sleeps hungry"));
