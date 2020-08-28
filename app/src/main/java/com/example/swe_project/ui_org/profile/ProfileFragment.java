@@ -137,7 +137,7 @@ public class ProfileFragment extends Fragment {
                         Picasso.get().load(profilePicPath).into(profileImageView);
                         Log.d("Response","pic already there will be updated");
 
-                    }else{
+                    }
                         profileImageView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -159,7 +159,7 @@ public class ProfileFragment extends Fragment {
                                 }
                             }
                         });
-                    }
+
                     Log.d("Response name","finished creating object");
                 } catch (Exception e) {
                     e.printStackTrace();
