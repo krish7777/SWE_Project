@@ -1,12 +1,10 @@
-package com.example.swe_project.ui.profile;
+package com.example.swe_project.ui_org.profile;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.swe_project.R;
@@ -42,7 +40,7 @@ public class profileaAdapter extends RecyclerView.Adapter<profileaAdapter.profil
 
     @Override
     public profileViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.custom_view_profile, viewGroup, false);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.custom_view_profile_org, viewGroup, false);
         profileViewHolder pvh = new profileViewHolder(v);
         return pvh;
     }

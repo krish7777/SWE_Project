@@ -54,7 +54,7 @@ public class organisation_login_page extends AppCompatActivity {
         String email= emailView.getText().toString();
         String password= passwordView.getText().toString();
         if(validateCredentials(email, password)== true){
-            String url = "http://192.168.1.2:8000/auth/login/organisation";
+            String url = "http://192.168.1.5:8000/auth/login/organisation";
             final HashMap<String, String> params = new HashMap<String, String>();
             params.put("password",password);
             params.put("email",email);
