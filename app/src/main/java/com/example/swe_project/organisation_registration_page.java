@@ -73,7 +73,9 @@ public class organisation_registration_page extends AppCompatActivity {
     }
 
     public void registerOrganisation(View view) {
-        String url = "http://192.168.1.2:8000/auth/register/organisation";
+        String url = getString(R.string.url);
+
+         url += "/auth/register/organisation";
         String email = emailView.getText().toString();
         String password = passwordView.getText().toString();
         String name = nameView.getText().toString();

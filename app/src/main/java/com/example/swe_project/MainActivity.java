@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(AuthChecker.authChecker(this)==true){
 
-            String url = "http://192.168.1.4:8000/auth/isAuth";
+            String url = "http://192.168.43.60:8000/auth/isAuth";
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {

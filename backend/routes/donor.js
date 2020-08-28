@@ -1,26 +1,22 @@
 const router = require('express').Router();
-const DonorModel = require('../models/donor.model')
+const DonorModel = require('../models/donor')
+const OrganisationModel = require('../models/organisation')
 
-router.route('/').get((req,res)=>{
-	res.send("Working fine");
-	res.status(400);
-})
-router.route('/create').get((req,res)=>{
-	var newdonor  = new DonorModel({
-		name:"Arpit",	
-		pswd:"arpit",
-	})
-	newdonor.save((err,event)=>{
-		if(err){
-			res.send("ERRRORRR While creating profile")
-			res.send(404)
-		
-		}
-		
-		res.redirect('/donor/');
-		
-	})
-})
+const isAuth = require('../middlewares/isAuth');
 
+router.post('/nearbyorganisations', (req,res)=>{
+	console.log("lets give the nearby organisation")
+
+		OrganisationModel.find({},(err,organisation)=>{
+			if(err){
+			console.log("error!!!!!")}
+			else{
+				console.log(organisation)
+				res.status(200).json({"organisations": organisation})
+			}
+
+		}).limit(2)
+
+})
 
 module.exports = router
