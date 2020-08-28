@@ -30,6 +30,14 @@ const donorSchema = new Schema({
         type: Number,
         default: 0
     },
+    latitude: {
+        type: Number,
+        required: true
+    },
+    longitude: {
+        type: Number,
+        required: true
+    },
     donationsMade: [{
         type: Schema.Types.ObjectId,
         ref: 'Donation'

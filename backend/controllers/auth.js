@@ -5,7 +5,7 @@ const Donor = require('../models/donor');
 const Organisation = require('../models/organisation')
 exports.registerDonor = async (req, res, next) => {
     console.log(req.body);
-    const { email, name, password, contactNumber } = req.body;
+    const { email, name, password, contactNumber, latitude, longitude } = req.body;
     const checkExistingDonor = await Donor.findOne({ email: email })
     if (!checkExistingDonor)
         try {
@@ -15,7 +15,9 @@ exports.registerDonor = async (req, res, next) => {
                 email: email,
                 password: hashedPw,
                 name: name,
-                contactNumber: contactNumber
+                contactNumber: contactNumber,
+                latitude: latitude,
+                longitude: longitude
             });
             const result = await donor.save();
             console.log("result", result)

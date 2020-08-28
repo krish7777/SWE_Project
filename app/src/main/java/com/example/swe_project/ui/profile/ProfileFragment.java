@@ -128,7 +128,8 @@ public class ProfileFragment extends Fragment {
         recyclerview.setAdapter(adapter);
         Log.d("profile","seventh check");
         url=  getActivity().getString(R.string.url)+"/donor/get-details";
-        imageUrl= getActivity().getString(R.string.url)+"/upload";
+        imageUploadUrl= getActivity().getString(R.string.url)+"/donor/upload-profile-pic";
+        ROOT_URL= getActivity().getString(R.string.url)+"/upload";
 
 
         nameView= (TextView)root.findViewById(R.id.donor_name);
@@ -234,6 +235,8 @@ public class ProfileFragment extends Fragment {
 
 
     private void showFileChooser() {
+        Log.d("img","showFileChoser");
+
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -242,7 +245,7 @@ public class ProfileFragment extends Fragment {
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
+        Log.d("img","onActivityResult");
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             Uri picUri = data.getData();
             filePath = getPath(picUri);
@@ -266,7 +269,7 @@ public class ProfileFragment extends Fragment {
 
     }
     public String getPath(Uri uri) {
-        Cursor cursor = getActivity().getContentResolver().query(uri, null, null, null, null);
+        Cursor cursor = getActivity ().getContentResolver().query(uri, null, null, null, null);
         cursor.moveToFirst();
         String document_id = cursor.getString(0);
         document_id = document_id.substring(document_id.lastIndexOf(":") + 1);

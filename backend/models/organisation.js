@@ -22,6 +22,10 @@ const organisationSchema = new Schema({
         type: Number,
         required: true
     },
+    profilePicPath: {
+        type: String,
+        default: ""
+    },
     address: {
         type: String,
         required: true
