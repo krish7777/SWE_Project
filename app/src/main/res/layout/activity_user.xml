@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/mobile_navigation"
         android:layout_marginBottom="?actionBarSize"/>
-
+<!--
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
