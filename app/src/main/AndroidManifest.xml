@@ -9,6 +9,7 @@
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -52,8 +53,17 @@
             android:name=".donor_login_page"
             android:label="Donor Login" />
         <activity android:name=".createdonor" />
+        <activity android:name=".DiscoverMapsActivity"
+            android:parentActivityName=".MainActivity"/>
+
+        <activity
+            android:name=".DonationDetails"
+            android:parentActivityName=".DiscoverMapsActivity" />
         <activity
             android:name=".UserActivity"
+            android:label="@string/title_activity_user" />
+        <activity
+            android:name=".OrgActivity"
             android:label="@string/title_activity_user" />
         <activity android:name=".MainActivity">
             <intent-filter>

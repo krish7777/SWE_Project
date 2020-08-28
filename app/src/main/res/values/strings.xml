@@ -16,4 +16,13 @@
     <string name="title_community">Community</string>
     <string name="title_profile">Profile</string>
     <string name="title_activity_maps">Map</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="fill_details">Fill Details</string>
+    <string name="done">done</string>
+    <string name="enter_details_for_donation">enter_details_for_donation</string>
+    <string name="add_details">add_details</string>
+    <string name="enter_details">ENTER DETAILS</string>
+    <string name="title_activity_maps2">Map</string>
+
 </resources>
