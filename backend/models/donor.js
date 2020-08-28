@@ -18,8 +18,26 @@ const donorSchema = new Schema({
         type: String,
         required: true
     },
-    peopleFed: Number,
-    moneyRaised: Number,
+    profilePicPath: {
+        type: String,
+        default: ""
+    },
+    peopleFed: {
+        type: Number,
+        default: 0
+    },
+    moneyRaised: {
+        type: Number,
+        default: 0
+    },
+    latitude: {
+        type: Number,
+        required: true
+    },
+    longitude: {
+        type: Number,
+        required: true
+    },
     donationsMade: [{
         type: Schema.Types.ObjectId,
         ref: 'Donation'

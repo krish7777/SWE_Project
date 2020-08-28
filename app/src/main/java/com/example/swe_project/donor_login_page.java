@@ -34,8 +34,16 @@ public class donor_login_page extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if(AuthChecker.authChecker(this)==true){
-            Intent intent = new Intent(donor_login_page.this,UserActivity.class);
+        String role =AuthChecker.authChecker(this);
+        if(role.length()!=0){
+            Log.d("Res","haha already exist going");
+            Intent intent ;
+            if(role.equals("Donor")){
+                intent= new Intent(donor_login_page.this, DonorActivity.class);
+            }else{
+                intent= new Intent(donor_login_page.this, OrgActivity.class);
+            }
+
             startActivity(intent);
         }
     }
@@ -50,6 +58,7 @@ public class donor_login_page extends AppCompatActivity {
             Toast.makeText(this,"Invalid Email ID",Toast.LENGTH_SHORT).show();
             //return;
         }
+
         String url = getString(R.string.url);
         url+= "/auth/login/donor";
 
@@ -63,12 +72,14 @@ public class donor_login_page extends AppCompatActivity {
 
                     String token = response.getString("token");
                     String id = response.getString("userId");
+                    String role=response.getString("role");
                     Log.d("Reponse",token);
                     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("token", token);
                     editor.putString("id",id);
+                    editor.putString("role",role);
                     boolean commit = editor.commit();
                     Intent intent = new Intent(donor_login_page.this,UserActivity.class);
                     startActivity(intent);
