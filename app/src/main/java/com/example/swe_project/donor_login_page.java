@@ -51,7 +51,9 @@ public class donor_login_page extends AppCompatActivity {
             //return;
         }
 
-        String url = "http://192.168.1.5:8000/auth/login/donor";
+        String url = getString(R.string.url);
+        url+= "/auth/login/donor";
+
         final HashMap<String, String> params = new HashMap<String, String>();
         params.put("password",password.getText().toString());
         params.put("email",getemailid);

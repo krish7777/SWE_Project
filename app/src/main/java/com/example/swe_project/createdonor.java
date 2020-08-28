@@ -32,7 +32,8 @@ public class createdonor extends AppCompatActivity {
         contactnumber = findViewById(R.id.contactnumber);
     }
     public void createDonor(View view) {
-        String url = "http://192.168.1.5:8000/auth/register/donor";
+
+        String url = getString(R.string.url)+"/auth/register/donor";
         final HashMap<String, String> params = new HashMap<String, String>();
         params.put("email",emaildetail.getText().toString());
         params.put("password",password.getText().toString());

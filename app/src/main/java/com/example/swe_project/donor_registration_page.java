@@ -58,7 +58,8 @@ public class donor_registration_page extends AppCompatActivity {
     }
 
     public void registerDonor(View view) {
-        String url = "http://192.168.1.5:8000/auth/register/donor";
+
+        String url = getString(R.string.url)+"/auth/register/donor";
         String email = emailView.getText().toString();
         String password = passwordView.getText().toString();
         String name = nameView.getText().toString();

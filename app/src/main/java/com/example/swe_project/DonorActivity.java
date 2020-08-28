@@ -30,7 +30,7 @@ public class DonorActivity extends AppCompatActivity {
 
 
     public void retrieveinfo(View view) {
-        String url = "http://192.168.43.60:8000/auth/secret";
+        String url = getString(R.string.url)+"/auth/secret";
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String  data = sharedPreferences.getString("id", "object ID will be displayed!");
 

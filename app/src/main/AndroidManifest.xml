@@ -12,6 +12,8 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -54,8 +56,17 @@
             android:name=".donor_login_page"
             android:label="Donor Login" />
         <activity android:name=".createdonor" />
+        <activity android:name=".DiscoverMapsActivity"
+            android:parentActivityName=".MainActivity"/>
+
+        <activity
+            android:name=".DonationDetails"
+            android:parentActivityName=".DiscoverMapsActivity" />
         <activity
             android:name=".UserActivity"
+            android:label="@string/title_activity_user" />
+        <activity
+            android:name=".OrgActivity"
             android:label="@string/title_activity_user" />
         <activity android:name=".MainActivity">
             <intent-filter>
