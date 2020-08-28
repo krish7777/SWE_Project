@@ -10,13 +10,11 @@ router.post('/register/organisation', registerOrganisation)
 router.post('/login/donor', loginDonor)
 router.post('/login/organisation', loginOrganisation)
 
-router.post('/secret', isAuth, (req, res) => {//FOR ANY AUTHENTICTED ROUTE, just add the isAuth Middleware.
-    const {id} = req.body;
-    
-    console.log(id);
+router.post('/isAuth', isAuth, (req, res) => {//FOR ANY AUTHENTICTED ROUTE, just add the isAuth Middleware.
     console.log("Working Great!!!");
-    res.status(400).send("GREAT JOB");
-    
+
+    res.status(200).json({ "role": req.role, "id": req.userId });
+
 })
 
 module.exports = router

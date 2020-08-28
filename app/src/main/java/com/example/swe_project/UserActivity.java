@@ -1,6 +1,8 @@
 package com.example.swe_project;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -27,4 +29,18 @@ public class UserActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navView, navController);
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(AuthChecker.authChecker(this)==false){
+            Intent intent = new Intent(this,MainActivity.class);
+            startActivity(intent);
+        }
+    }
+
+    public void logout(View view) {
+        AuthChecker.logout(this);
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+    }
 }
