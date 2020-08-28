@@ -22,4 +22,5 @@
     <string name="done">done</string>
     <string name="enter_details_for_donation">enter_details_for_donation</string>
     <string name="add_details">add_details</string>
+    <string name="enter_details">ENTER DETAILS</string>
 </resources>
