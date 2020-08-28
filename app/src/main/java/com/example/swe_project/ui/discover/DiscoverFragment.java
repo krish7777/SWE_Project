@@ -23,7 +23,6 @@ public class DiscoverFragment extends Fragment {
     DiscoverAdapter adapter;
     ArrayList<DiscoverData> items;//in this arraylist data is to be loaded from server to be shown in cards
 
-    Button button;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -35,23 +34,9 @@ public class DiscoverFragment extends Fragment {
         adapter = new DiscoverAdapter(items);
         recyclerview.setAdapter(adapter);
 
-        button = (Button) root.findViewById(R.id.button4);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openActivity();
-
-            }
-        });
-
         return root;
     }
 
-    private void openActivity() {
-        Intent intent = new Intent(getActivity(), DiscoverMapsActivity.class);
-
-        startActivity(intent);
-    }
 
     private void initialiseitems() {
         items = new ArrayList<>();

@@ -43,7 +43,6 @@ public class HomeAdapter extends RecyclerView.Adapter<com.example.swe_project.ui
     }
 
 
-
     @Override
     public HomeViewHolder  onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.custom_view_home, viewGroup, false);
