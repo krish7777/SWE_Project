@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,6 +27,9 @@ public class DonationDetails extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                Toast.makeText(getBaseContext(), "Donation Registered" , Toast.LENGTH_SHORT ).show();
+
                 openActivity();
 
             }
@@ -34,7 +38,7 @@ public class DonationDetails extends AppCompatActivity {
 
     private void openActivity() {
 
-        Intent intent = new Intent(this, DiscoverMapsActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
 
     }

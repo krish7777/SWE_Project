@@ -59,6 +59,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+
+        //map set deafult to india
+        LatLng india = new LatLng(20.5937, 78.9629);
+        mMap.addMarker(new MarkerOptions().position(india).visible(false));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(india));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(india,4));
+
+
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
 
             @Override
