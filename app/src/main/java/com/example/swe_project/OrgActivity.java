@@ -30,22 +30,14 @@ public class OrgActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
     }
-/*
+
     @Override
     protected void onStart() {
         super.onStart();
 
-        if(AuthChecker.authChecker(this)==false){
+        if(AuthChecker.authChecker(this).length()==0){
             Intent intent = new Intent(this,MainActivity.class);
             startActivity(intent);
         }
     }
-
-    public void logout(View view) {
-        AuthChecker.logout(this);
-        Intent intent = new Intent(this,MainActivity.class);
-        startActivity(intent);
-    }
-
- */
 }

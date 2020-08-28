@@ -35,9 +35,15 @@ public class organisation_login_page extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if(AuthChecker.authChecker(this)==true){
-            Log.d("Res","haha already exist going");
-            Intent intent = new Intent(organisation_login_page.this, OrgActivity.class);
+        String role =AuthChecker.authChecker(this);
+        if(role.length()!=0){
+            Intent intent ;
+            if(role.equals("Donor")){
+                intent= new Intent(organisation_login_page.this, DonorActivity.class);
+            }else{
+                intent= new Intent(organisation_login_page.this, OrgActivity.class);
+            }
+
             startActivity(intent);
         }
     }

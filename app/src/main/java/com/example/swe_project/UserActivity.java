@@ -63,7 +63,7 @@ public class UserActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if(AuthChecker.authChecker(this)==false){
+        if(AuthChecker.authChecker(this).length()==0){
             Intent intent = new Intent(this,MainActivity.class);
             startActivity(intent);
         }

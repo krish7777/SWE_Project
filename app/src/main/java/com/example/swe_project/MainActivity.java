@@ -31,8 +31,9 @@ public class MainActivity extends AppCompatActivity {
         Log.i("MainActivity", "testing git here");
        // getActionBar().hide();
         getSupportActionBar().hide();
+        String role=AuthChecker.authChecker(this);
 
-        if(AuthChecker.authChecker(this)==true){
+        if(role.length()!=0){
             String url = getString(R.string.url)+"/auth/isAuth";
 
 
@@ -41,7 +42,13 @@ public class MainActivity extends AppCompatActivity {
                 public void onResponse(JSONObject response) {
                     try {
                         Log.d("Response here", response.toString());
-                        Intent intent = new Intent(MainActivity.this,UserActivity.class);
+                        String role=response.getString("role");
+                        Intent intent;
+                        if(role.equals("Donor")){
+                            intent = new Intent(MainActivity.this,UserActivity.class);
+                        }else{
+                            intent = new Intent(MainActivity.this,OrgActivity.class);
+                        }
                         startActivity(intent);
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -75,8 +82,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if(AuthChecker.authChecker(this)==true){
-            Intent intent = new Intent(this,UserActivity.class);
+        String role=AuthChecker.authChecker(this);
+        if(role.length()!=0){
+            Intent intent;
+            if(role.equals("Donor")){
+                intent = new Intent(this,UserActivity.class);
+            }else{
+                intent = new Intent(this,OrgActivity.class);
+            }
             startActivity(intent);
         }
     }
