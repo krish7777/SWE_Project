@@ -53,7 +53,7 @@ public class organisation_registration_page extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if(AuthChecker.authChecker(this)==true){
-            Intent intent = new Intent(this,UserActivity.class);
+            Intent intent = new Intent(this,OrgActivity.class);
             startActivity(intent);
         }
     }

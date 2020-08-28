@@ -91,7 +91,7 @@ exports.loginDonor = async (req, res, next) => {
             'secret',
             // { expiresIn: '24h' }
         );
-        res.status(200).json({ token: token, userId: donor._id.toString() })
+        res.status(200).json({ token: token, userId: donor._id.toString(), role: "Donor" })
     } catch (err) {
         if (!err.statusCode) {
             err.statusCode = 500;
@@ -124,7 +124,7 @@ exports.loginOrganisation = async (req, res, next) => {
             'secret',
             // { expiresIn: '24h' }
         );
-        res.status(200).json({ token: token, userId: organisation._id.toString() })
+        res.status(200).json({ token: token, userId: organisation._id.toString(), role: "Organisation" })
     } catch (err) {
         if (!err.statusCode) {
             err.statusCode = 500;

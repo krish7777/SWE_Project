@@ -64,12 +64,14 @@ public class donor_login_page extends AppCompatActivity {
 
                     String token = response.getString("token");
                     String id = response.getString("userId");
+                    String role=response.getString("role");
                     Log.d("Reponse",token);
                     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("token", token);
                     editor.putString("id",id);
+                    editor.putString("role",role);
                     boolean commit = editor.commit();
                     Intent intent = new Intent(donor_login_page.this,UserActivity.class);
                     startActivity(intent);

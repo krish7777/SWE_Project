@@ -1,6 +1,7 @@
 package com.example.swe_project.ui.profile;
 
 import android.Manifest;
+import android.app.Application;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -84,9 +85,9 @@ public class ProfileFragment extends Fragment {
     private TextView peopleFedView;
     private TextView moneyRaisedView;
     private Button logoutButton;
-    String url = "http:192.168.1.5:8000/donor/get-details";
-    String imageUploadUrl="http:192.168.1.5:8000/donor/upload-profile-pic";
-    String ROOT_URL = "http:192.168.1.5:8000/upload";
+    String url;
+    String imageUploadUrl;
+    String ROOT_URL;
 
     DonorData donorData;
 
@@ -126,6 +127,8 @@ public class ProfileFragment extends Fragment {
         Log.d("profile","sixth check");
         recyclerview.setAdapter(adapter);
         Log.d("profile","seventh check");
+        url=  getActivity().getString(R.string.url)+"/donor/get-details";
+        imageUrl= getActivity().getString(R.string.url)+"/upload";
 
 
         nameView= (TextView)root.findViewById(R.id.donor_name);
