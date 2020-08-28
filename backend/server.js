@@ -2,6 +2,9 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const multer = require('multer')
+const fs = require('fs')
+const path = require('path')
 
 const authRoutes = require('./routes/auth')
 
@@ -10,6 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 8000
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use(cors())
 
 
@@ -52,4 +56,48 @@ const organisationRouter = require('./routes/organisation');
 
 app.use('/donor', donorRouter);
 app.use('/organisation', organisationRouter);
+
+
+const imageStorage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        console.log("fiel in img", file);
+        const reqPath = path.join(__dirname, 'images')
+        if (!fs.existsSync(reqPath)) {
+            fs.mkdirSync(reqPath, { recursive: true })
+        }
+        cb(null, reqPath)
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + '-' + file.originalname)
+    }
+})
+
+// const imageFilter = (req, file, cb) => {
+//     if (file.mimetype === 'image/png' ||
+//         file.mimetype === 'image/jpg' ||
+//         file.mimetype === 'image/jpeg'
+//     ) {
+//         cb(null, true);
+//     } else {
+//         cb(null, false);
+//     }
+// }
+
+const uploadImage = multer({
+    storage: imageStorage,
+    limits: {
+        fieldSize: 3000000
+    },
+    // fileFilter: imageFilter
+})
+
+app.post('/upload', uploadImage.single('file'),
+    (req, res) => {
+        console.log("hooorayyy")
+        console.log('req.file', req.file)
+        res.json({
+            "location": `http://192.168.1.8:8000/images/${req.file.filename}`, "originalName": req.file.originalname
+        })
+    }
+)
 
