@@ -8,7 +8,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    tools:context=".MapsActivity"
+    tools:context=".DiscoverMapsActivity"
     tools:visibility="visible">
 
     <LinearLayout
@@ -21,7 +21,7 @@
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="525dp"
-            tools:context=".MapsActivity" />
+            tools:context=".DiscoverMapsActivity" />
 
     </LinearLayout>
 

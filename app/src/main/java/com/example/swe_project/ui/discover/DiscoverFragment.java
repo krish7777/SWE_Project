@@ -6,18 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.swe_project.MainActivity2;
-import com.example.swe_project.MapsActivity;
+import com.example.swe_project.DiscoverMapsActivity;
 import com.example.swe_project.R;
 
 import java.util.ArrayList;
@@ -53,7 +48,7 @@ public class DiscoverFragment extends Fragment {
     }
 
     private void openActivity() {
-        Intent intent = new Intent(getActivity(), MapsActivity.class);
+        Intent intent = new Intent(getActivity(), DiscoverMapsActivity.class);
 
         startActivity(intent);
     }

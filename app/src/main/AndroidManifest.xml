@@ -36,12 +36,12 @@
         <activity android:name=".DonorActivity" />
         <activity android:name=".donor_login_page" />
         <activity android:name=".createdonor" />
-        <activity android:name=".MapsActivity"
+        <activity android:name=".DiscoverMapsActivity"
             android:parentActivityName=".MainActivity"/>
 
         <activity
-            android:name=".MainActivity2"
-            android:parentActivityName=".MapsActivity" />
+            android:name=".DonationDetails"
+            android:parentActivityName=".DiscoverMapsActivity" />
         <activity
             android:name=".UserActivity"
             android:label="@string/title_activity_user" />

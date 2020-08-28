@@ -8,7 +8,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity2 extends AppCompatActivity {
+public class DonationDetails extends AppCompatActivity {
 
     Button button;
 
@@ -17,7 +17,7 @@ public class MainActivity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.donationdetails);
         getSupportActionBar().setTitle("DETAILS FOR DONATION");
         getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
 
@@ -34,7 +34,7 @@ public class MainActivity2 extends AppCompatActivity {
 
     private void openActivity() {
 
-        Intent intent = new Intent(this, MapsActivity.class);
+        Intent intent = new Intent(this, DiscoverMapsActivity.class);
         startActivity(intent);
 
     }
