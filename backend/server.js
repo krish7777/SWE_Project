@@ -36,8 +36,8 @@ app.use((error, req, res, next) => {// Error Handling
 });
 
 
-//const MONGO_URI = "mongodb://127.0.0.1:27017/swe_project" // TEST DB
- const MONGO_URI = "mongodb+srv://arpit:arpit@cluster0.lr4ce.mongodb.net/techsite?retryWrites=true&w=majority" //-- ORIGINAL DB
+const MONGO_URI = "mongodb://127.0.0.1:27017/swe_project" // TEST DB
+//  const MONGO_URI = "mongodb+srv://arpit:arpit@cluster0.lr4ce.mongodb.net/techsite?retryWrites=true&w=majority" //-- ORIGINAL DB
 
 // const MONGO_URI = "mongodb+srv://arpit:arpit@cluster0.lr4ce.mongodb.net/techsite?retryWrites=true&w=majority"
 mongoose.connect(MONGO_URI, {
@@ -53,6 +53,7 @@ mongoose.connect(MONGO_URI, {
 
 const donorRouter = require('./routes/donor');
 const organisationRouter = require('./routes/organisation');
+
 
 app.use('/donor', donorRouter);
 app.use('/organisation', organisationRouter);
@@ -96,7 +97,7 @@ app.post('/upload', uploadImage.single('file'),
         console.log("hooorayyy")
         console.log('req.file', req.file)
         res.json({
-            "location": `http://192.168.1.8:8000/images/${req.file.filename}`, "originalName": req.file.originalname
+            "location": `http://192.168.1.5:8000/images/${req.file.filename}`, "originalName": req.file.originalname
         })
     }
 )

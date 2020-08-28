@@ -30,6 +30,7 @@ public class organisation_registration_page extends AppCompatActivity {
     private EditText contactNumberView;
     private EditText addressView;
     private TextView coordinatesView;
+    private EditText descriptionView;
     public static final int LOCATION_REQUEST = 1;
     private LatLng location;
 
@@ -45,6 +46,7 @@ public class organisation_registration_page extends AppCompatActivity {
         contactNumberView = findViewById(R.id.organisation_reg_contactNumber);
         addressView=findViewById(R.id.organisation_reg_address);
         coordinatesView= findViewById(R.id.coordinates);
+        descriptionView= findViewById(R.id.organisation_reg_description);
     }
 
     @Override
@@ -56,7 +58,7 @@ public class organisation_registration_page extends AppCompatActivity {
         }
     }
 
-    public boolean validateCredentials(String email, String password, String name, String contactNumber, String address, LatLng location) {
+    public boolean validateCredentials(String email, String password, String name,String description, String contactNumber, String address, LatLng location) {
         if(name.length() ==0)
             return false;
         if (password.length() == 0)
@@ -67,24 +69,28 @@ public class organisation_registration_page extends AppCompatActivity {
             return false;
         if(address.length() ==0)
             return false;
+        if(description.length()==0)
+            return false;
         if(location==null)
             return false;
         return true;
     }
 
     public void registerOrganisation(View view) {
-        String url = "http://192.168.1.2:8000/auth/register/organisation";
+        String url = "http://192.168.1.8:8000/auth/register/organisation";
         String email = emailView.getText().toString();
         String password = passwordView.getText().toString();
         String name = nameView.getText().toString();
+        String description = descriptionView.getText().toString();
         String contactNumber = contactNumberView.getText().toString();
         String address = addressView.getText().toString();
-        if (validateCredentials(email, password,name, contactNumber,address,location) == true) {
+        if (validateCredentials(email, password,name, description,contactNumber,address,location) == true) {
 
             final HashMap<String, String> params = new HashMap<String, String>();
             params.put("email", email);
             params.put("password", password);
             params.put("name", name);
+            params.put("description",description);
             params.put("contactNumber", contactNumber);
             params.put("address",address);
             params.put("latitude",Double.toString(location.latitude));

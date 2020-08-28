@@ -34,7 +34,7 @@ exports.registerDonor = async (req, res, next) => {
 };
 
 exports.registerOrganisation = async (req, res, next) => {
-    let { email, name, password, contactNumber, address, latitude, longitude } = req.body;
+    let { email, name, password, description, contactNumber, address, latitude, longitude } = req.body;
     const checkExistingOrganisation = await Organisation.findOne({ email: email })
     if (!checkExistingOrganisation)
         try {
@@ -44,6 +44,7 @@ exports.registerOrganisation = async (req, res, next) => {
                 email: email,
                 password: hashedPw,
                 name: name,
+                description: description,
                 contactNumber: contactNumber,
                 address: address,
                 latitude: latitude,
@@ -88,7 +89,7 @@ exports.loginDonor = async (req, res, next) => {
             role: 'Donor'
         },
             'secret',
-            { expiresIn: '24h' }
+            // { expiresIn: '24h' }
         );
         res.status(200).json({ token: token, userId: donor._id.toString() })
     } catch (err) {
@@ -121,7 +122,7 @@ exports.loginOrganisation = async (req, res, next) => {
             role: 'Organisation'
         },
             'secret',
-            { expiresIn: '24h' }
+            // { expiresIn: '24h' }
         );
         res.status(200).json({ token: token, userId: organisation._id.toString() })
     } catch (err) {

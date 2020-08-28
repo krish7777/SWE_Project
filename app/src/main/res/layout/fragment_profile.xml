@@ -24,33 +24,42 @@
         android:id="@+id/profile_photo"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/entry_photo_check1"
+        android:background="@drawable/image_upload"
         />
     <TextView
-        android:id="@+id/full_name"
+        android:id="@+id/donor_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:fontFamily="@font/baloobold"
         android:includeFontPadding="false"
         android:layout_toRightOf="@id/profile_photo"
-        android:text="Arpit Bandejiya"
+        android:text="Name"
         android:textColor="@android:color/black"
         android:textSize="20dp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/emailid"
+        android:id="@+id/donor_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/full_name"
+        android:layout_below="@id/donor_name"
         android:layout_toRightOf="@id/profile_photo"
         android:layout_marginLeft="10dp"
         android:includeFontPadding="false"
-        android:text="arpitbandejiya@gmail.com"
+        android:text="email"
         android:textSize="14dp"
 
         />
+        <Button
+            android:id="@+id/logout_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:onClick="logout"
+            android:layout_below="@id/donor_email"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/profile_photo" />
     </RelativeLayout>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -73,22 +82,22 @@
                     android:layout_centerInParent="true"
                     android:orientation="vertical">
                 <TextView
-                    android:id="@+id/food_fed_count"
+                    android:id="@+id/donor_people_fed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:fontFamily="@font/baloobold"
                     android:includeFontPadding="false"
-                    android:text="123"
+                    android:text="0"
                     android:layout_marginTop="12dp"
                     android:layout_gravity="center_horizontal"
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/food_fed"
+                    android:id="@+id/money_raise_donor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/food_fed_count"
+                    android:layout_below="@id/donor_people_fed"
                     android:layout_centerHorizontal="true"
                     android:layout_gravity="center"
                     android:fontFamily="@font/baloobold"
@@ -116,7 +125,7 @@
                     android:layout_centerInParent="true"
                     android:orientation="vertical">
                 <TextView
-                    android:id="@+id/food_donated_count"
+                    android:id="@+id/donor_money_raised"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
@@ -124,7 +133,7 @@
                     android:includeFontPadding="false"
                     android:layout_marginTop="12dp"
                     android:layout_gravity="center_horizontal"
-                    android:text="123"
+                    android:text="0"
                     android:textSize="20sp" />
 
                 <TextView
@@ -135,7 +144,7 @@
                     android:fontFamily="@font/baloobold"
                     android:includeFontPadding="false"
                     android:textColor="@android:color/black"
-                    android:text="Food dn"
+                    android:text="Money raised"
                     android:textSize="14sp" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>

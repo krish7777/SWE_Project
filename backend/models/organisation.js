@@ -14,6 +14,10 @@ const organisationSchema = new Schema({
         type: String,
         required: true
     },
+    description: {
+        type: String,
+        required: true
+    },
     contactNumber: {
         type: Number,
         required: true

@@ -40,15 +40,6 @@ import java.util.Map;
 
 public class UserActivity extends AppCompatActivity {
 
-    private static final String ROOT_URL = "http://192.168.1.8:8000/upload";
-    private static final int REQUEST_PERMISSIONS = 100;
-    private static final int PICK_IMAGE_REQUEST =1 ;
-    private Bitmap bitmap;
-    private String filePath;
-    private String imageUrl;
-    ImageView imageView;
-    TextView textView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +54,33 @@ public class UserActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+    }
+
+
+
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(AuthChecker.authChecker(this)==false){
+            Intent intent = new Intent(this,MainActivity.class);
+            startActivity(intent);
+        }
+    }
+
+}
+
+/*
+
+private static final String ROOT_URL = "http://192.168.1.8:8000/upload";
+    private static final int REQUEST_PERMISSIONS = 100;
+    private static final int PICK_IMAGE_REQUEST =1 ;
+    private Bitmap bitmap;
+    private String filePath;
+    private String imageUrl;
+    ImageView imageView;
+    TextView textView;
 
 
         imageView =  findViewById(R.id.imageView);
@@ -89,9 +107,10 @@ public class UserActivity extends AppCompatActivity {
                 }
             }
         });
-    }
 
-    private void showFileChooser() {
+
+
+private void showFileChooser() {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -190,21 +209,6 @@ public class UserActivity extends AppCompatActivity {
 
 
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if(AuthChecker.authChecker(this)==false){
-            Intent intent = new Intent(this,MainActivity.class);
-            startActivity(intent);
-        }
-        if(imageUrl!=null){
-            Picasso.get().load(imageUrl).into(imageView);
-        }
-    }
+ */
 
-    public void logout(View view) {
-        AuthChecker.logout(this);
-        Intent intent = new Intent(this,MainActivity.class);
-        startActivity(intent);
-    }
-}
+

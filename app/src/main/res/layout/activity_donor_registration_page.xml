@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".donor_registration_page">
+    tools:context=".donor_registration_page"
+    >
 
     <EditText
         android:layout_width="match_parent"
