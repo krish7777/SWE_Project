@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 const isAuth = require('../middlewares/isAuth');
 
-const { getDonor, uploadDonorProfilePic } = require('../controllers/donor');
+const { getDonor, uploadDonorProfilePic, getLeaderboard } = require('../controllers/donor');
 
 
 router.post('/upload-profile-pic', isAuth, uploadDonorProfilePic)
@@ -27,5 +27,8 @@ router.post('/nearbyorganisations', (req, res) => {
 	}).limit(2)
 
 })
+
+
+router.get('/leaderboard', getLeaderboard)
 
 module.exports = router
