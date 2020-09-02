@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.swe_project">
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -9,6 +8,8 @@
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
@@ -19,7 +20,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -34,8 +34,7 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"
-            />
+            android:label="@string/title_activity_maps" />
         <activity
             android:name=".organisation_registration_page"
             android:label="Organisation Registration" />
@@ -53,9 +52,15 @@
             android:name=".donor_login_page"
             android:label="Donor Login" />
         <activity android:name=".createdonor" />
-        <activity android:name=".DiscoverMapsActivity"
-            android:parentActivityName=".MainActivity"/>
-
+        <activity
+            android:name=".DiscoverMapsActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".ui.community.leaderboardtable"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity
+            android:name=".ui.community.activites"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".DonationDetails"
             android:parentActivityName=".DiscoverMapsActivity" />

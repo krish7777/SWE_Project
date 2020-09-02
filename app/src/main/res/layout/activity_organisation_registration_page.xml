@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".organisation_registration_page">
+    tools:context=".organisation_registration_page"
+    >
 
     <ScrollView
         android:layout_width="match_parent"
@@ -41,6 +42,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/organisation_reg_name"
+        android:id="@+id/organisation_reg_description"
+        android:padding="16dp"
+        android:layout_margin="16dp"
+        android:inputType="text"
+        android:hint="Description"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/organisation_reg_description"
         android:id="@+id/organisation_reg_password"
         android:padding="16dp"
         android:layout_margin="16dp"

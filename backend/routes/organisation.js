@@ -1,9 +1,20 @@
 const router = require('express').Router();
 
-router.route('/').get((req,res)=>{
+const isAuth = require('../middlewares/isAuth');
+
+const { getOrganisation, uploadOrganisationProfilePic } = require('../controllers/organisation');
+
+
+router.route('/').get((req, res) => {
 	res.send("Working fine");
 	res.status(400);
 })
+
+
+router.post('/upload-profile-pic', isAuth, uploadOrganisationProfilePic);
+
+router.get('/get-details', isAuth, getOrganisation);
+
 
 
 

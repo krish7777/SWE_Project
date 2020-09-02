@@ -35,9 +35,15 @@ public class organisation_login_page extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if(AuthChecker.authChecker(this)==true){
-            Log.d("Res","haha already exist going");
-            Intent intent = new Intent(organisation_login_page.this, UserActivity.class);
+        String role =AuthChecker.authChecker(this);
+        if(role.length()!=0){
+            Intent intent ;
+            if(role.equals("Donor")){
+                intent= new Intent(organisation_login_page.this, DonorActivity.class);
+            }else{
+                intent= new Intent(organisation_login_page.this, OrgActivity.class);
+            }
+
             startActivity(intent);
         }
     }
@@ -54,6 +60,7 @@ public class organisation_login_page extends AppCompatActivity {
         String email= emailView.getText().toString();
         String password= passwordView.getText().toString();
         if(validateCredentials(email, password)== true){
+
             String url = getString(R.string.url)+"/auth/login/organisation";
 
             final HashMap<String, String> params = new HashMap<String, String>();
@@ -67,14 +74,16 @@ public class organisation_login_page extends AppCompatActivity {
                         Log.d("Result",response.toString());
                         String token = response.getString("token");
                         String id = response.getString("userId");
+                        String role = response.getString("role");
                         Log.d("Reponse",token);
                         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString("token", token);
                         editor.putString("id",id);
+                        editor.putString("role",role);
                         boolean commit = editor.commit();
                         Log.d("Res","about to go");
-                        Intent intent = new Intent(organisation_login_page.this, UserActivity.class);
+                        Intent intent = new Intent(organisation_login_page.this, OrgActivity.class);
                         startActivity(intent);
                     } catch (Exception e) {
 

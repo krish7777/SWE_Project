@@ -17,8 +17,15 @@ public class RegistrationHomeActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if(AuthChecker.authChecker(this)==true){
-            Intent intent = new Intent(this,UserActivity.class);
+        String role =AuthChecker.authChecker(this);
+        if(role.length()!=0){
+            Intent intent;
+            if(role.equals("Donor")){
+                intent =new Intent(this,UserActivity.class);
+            }
+            else{
+                intent = new Intent(this,OrgActivity.class);
+            }
             startActivity(intent);
         }
     }
