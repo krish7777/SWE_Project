@@ -10,7 +10,6 @@ const donationSchema = new Schema({
     receiver: {
         type: Schema.Types.ObjectId,
         ref: 'Organisation',
-        required: true
     },
     timestamp: {
         type: Schema.Types.Date,
@@ -18,8 +17,20 @@ const donationSchema = new Schema({
     },
     amount: {//NAME TO BE DECIDED
         type: Number,
+
+    },
+    description:{
+      type:String,
+      required:true
+    },
+    latitude: {
+        type: Number,
         required: true
     },
+    longitude: {
+        type: Number,
+        required: true
+    }
     //ADDITIONAL FIELDS CAN BE ADDED BELOW
 
 });
