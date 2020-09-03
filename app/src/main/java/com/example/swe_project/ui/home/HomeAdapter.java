@@ -23,6 +23,8 @@ import java.util.List;
 
 public class HomeAdapter extends RecyclerView.Adapter<com.example.swe_project.ui.home.HomeAdapter.HomeViewHolder> {
 
+
+
     public static class HomeViewHolder extends RecyclerView.ViewHolder{
         TextView desc;
         Button donate;
@@ -51,12 +53,21 @@ public class HomeAdapter extends RecyclerView.Adapter<com.example.swe_project.ui
     
     @Override
     public HomeViewHolder  onCreateViewHolder(ViewGroup viewGroup, int i) {
+
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.custom_view_home, viewGroup, false);
         HomeViewHolder pvh = new HomeViewHolder(v);
 
         return pvh;
     }
 
+    /*
+    @Override
+    public DetailViewHolder  onCreateViewHolder(ViewGroup viewGroup, int i) {
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.custom_view_home2, viewGroup, false);
+        DetailViewHolder pvh = new DetailViewHolder(v);
+        return pvh;
+    }
+*/
 
     @Override
     public void onBindViewHolder(HomeViewHolder homeViewHolder, int i) {
@@ -91,6 +102,16 @@ public class HomeAdapter extends RecyclerView.Adapter<com.example.swe_project.ui
                 public void onClick(View view) {
                     vi = view;
                     openActivity2();
+                }
+            });
+        }
+
+        if(i==3) {
+            homeViewHolder.donate.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    vi = view;
+                    Toast.makeText(vi.getContext(), "Lets feed even more!" , Toast.LENGTH_LONG ).show();
                 }
             });
         }
