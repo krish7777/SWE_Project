@@ -15,8 +15,6 @@ const Donormodel = require('../models/donor')
 
 router.post('/nearbyorganisations', (req, res) => {
 	console.log("lets give the nearby organisation")
-
-
 	OrganisationModel.find({}, (err, organisation) => {
 		if (err) {
 			console.log("error!!!!!")
@@ -33,7 +31,11 @@ router.post('/makedonation',async (req,res)=>{
 
 	console.log(" this is making donation now")
 	const {id,description,latitude,longitude} = req.body
-
+	console.log(id)
+	console.log(description)
+	console.log(latitude)
+	console.log(longitude)
+	
 	Donormodel.findById(id).then((donor)=>{
 		if(!donor)
 			throw new Error()

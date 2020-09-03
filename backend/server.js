@@ -10,7 +10,7 @@ const authRoutes = require('./routes/auth')
 
 
 const app = express();
-const PORT = process.env.PORT || 8000
+const PORT = process.env.PORT || 5000
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use('/images', express.static(path.join(__dirname, 'images')));
@@ -37,9 +37,9 @@ app.use((error, req, res, next) => {// Error Handling
 
 
 //const MONGO_URI = "mongodb://127.0.0.1:27017/swe_project" // TEST DB
-  const MONGO_URI = "mongodb+srv://arpit:arpit@cluster0.lr4ce.mongodb.net/techsite?retryWrites=true&w=majority" //-- ORIGINAL DB
+//const MONGO_URI = "mongodb+srv://arpit:arpit@cluster0.lr4ce.mongodb.net/techsite?retryWrites=true&w=majority" //-- ORIGINAL DB
 
-// const MONGO_URI = "mongodb+srv://arpit:arpit@cluster0.lr4ce.mongodb.net/techsite?retryWrites=true&w=majority"
+ const MONGO_URI = "mongodb+srv://arpit:arpit@cluster0.lr4ce.mongodb.net/techsite?retryWrites=true&w=majority"
 mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -97,8 +97,7 @@ app.post('/upload', uploadImage.single('file'),
         console.log("hooorayyy")
         console.log('req.file', req.file)
         res.json({
-            "location": `http://192.168.1.5:8000/images/${req.file.filename}`, "originalName": req.file.originalname
+            "location": `http://192.168.1.1:5000/images/${req.file.filename}`, "originalName": req.file.originalname
         })//PUT IP ADDRESS HERE
     }
 )
-
