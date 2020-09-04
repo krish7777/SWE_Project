@@ -84,3 +84,15 @@ exports.getNearbyOrganisations = async (req, res, next) => {
         next(err);
     }
 }
+
+exports.getLeaderboard = async (req, res, next) => {
+    try {
+        const donors = await Donor.find({}).select('name email peopleFed').sort('-peopleFed').limit(10)
+        res.status(201).json({ "donors": donors })
+    } catch (err) {
+        if (!err.statusCode) {
+            err.statusCode = 500;
+        }
+        next(err);
+    }
+}

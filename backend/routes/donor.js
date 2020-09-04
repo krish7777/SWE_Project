@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 const isAuth = require('../middlewares/isAuth');
 
-const { getDonor, uploadDonorProfilePic, getNearbyOrganisations } = require('../controllers/donor');
+const { getDonor, uploadDonorProfilePic, getNearbyOrganisations, getLeaderboard } = require('../controllers/donor');
 
 
 router.post('/upload-profile-pic', isAuth, uploadDonorProfilePic)
@@ -14,6 +14,8 @@ const Donationmodel = require('../models/donation')
 const Donormodel = require('../models/donor')
 
 router.post('/nearbyorganisations', isAuth, getNearbyOrganisations)
+
+router.get('/leaderboard', getLeaderboard)
 
 
 router.post('/makedonation', isAuth, async (req, res) => {
