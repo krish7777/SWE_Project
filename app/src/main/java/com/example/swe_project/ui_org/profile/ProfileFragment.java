@@ -132,6 +132,8 @@ public class ProfileFragment extends Fragment {
 
                     nameView.setText(name);
                     emailView.setText(email);
+                    
+                    items = new ArrayList<>();
 
                     for (int i = 0 ; i < donationsReceived.length(); i++) {
                         JSONObject obj = donationsReceived.getJSONObject(i);

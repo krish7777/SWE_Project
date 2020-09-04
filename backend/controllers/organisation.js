@@ -5,7 +5,7 @@ const Donor = require('../models/donor')
 exports.getOrganisation = async (req, res, next) => {
     let id = req.userId;
     try {
-        const organisation = await (await Organisation.findById(id)).populated({
+        const organisation = await Organisation.findById(id).populate({
             path: "donationsReceived",
             select: 'donorName description peopleFed donorContact'
         }).select('-latitude -longitude -location -password')
