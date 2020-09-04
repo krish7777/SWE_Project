@@ -6,7 +6,10 @@ exports.getDonor = async (req, res, next) => {
     let id = req.userId;
     console.log("hereeeee")
     try {
-        const donor = await Donor.findById(id).select("-password");
+        const donor = await Donor.findById(id).populate({
+            path: "donationsMade",
+            select: 'organisationName description peopleFed organisationContact'
+        }).select('-latitude -longitude -location -password')
         console.log("res", donor)
         res.status(200).json(donor)
     } catch (err) {
@@ -43,20 +46,32 @@ exports.getNearbyOrganisations = async (req, res, next) => {
 
         console.log(latitude, longitude)
 
-        let organisations = await Organisation.find({
-            location: {
+        let organisations = await Organisation.
+            aggregate().
+            near({
+                near: {
+                    type: "Point",
+                    coordinates: [longitude, latitude]
+                },
+                distanceField: 'distance'
+            }).sort('distance')
 
-                $nearSphere: {
+        // find({
+        //     location: {
 
-                    $geometry: {
-                        type: "Point",
-                        coordinates: [longitude, latitude]
-                    }
+        //         $nearSphere: {
 
-                }
+        //             $geometry: {
+        //                 type: "Point",
+        //                 coordinates: [longitude, latitude]
+        //             }
 
-            }
-        })
+        //         }
+
+        //     }
+        // })
+
+        console.log(organisations)
 
         res.json({
             "organisations": organisations

@@ -41,6 +41,18 @@ const donationSchema = new Schema({
     accepted: {
         type: Boolean,
         default: false
+    },
+    donorName: {
+        type: String
+    },
+    organisationName: {
+        type: String
+    },
+    donorContact: {
+        type: String
+    },
+    organisationContact: {
+        type: String
     }
     //ADDITIONAL FIELDS CAN BE ADDED BELOW
 

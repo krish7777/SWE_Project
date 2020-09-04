@@ -5,7 +5,10 @@ const Donor = require('../models/donor')
 exports.getOrganisation = async (req, res, next) => {
     let id = req.userId;
     try {
-        const organisation = await Organisation.findById(id).select('-password');
+        const organisation = await (await Organisation.findById(id)).populated({
+            path: "donationsReceived",
+            select: 'donorName description peopleFed donorContact'
+        }).select('-latitude -longitude -location -password')
         console.log("res", organisation)
         res.status(200).json(organisation)
     } catch (err) {
@@ -42,23 +45,34 @@ exports.getNearbyDonations = async (req, res, next) => {
 
         console.log(latitude, longitude)
 
-        let donations = await Donation.find({
-            location: {
+        let donations = await Donation.
+            aggregate().
+            near({
+                near: {
+                    type: "Point",
+                    coordinates: [longitude, latitude]
+                },
+                distanceField: 'distance'
+            }).sort('distance')
 
-                $nearSphere: {
 
-                    $geometry: {
-                        type: "Point",
-                        coordinates: [longitude, latitude]
-                    }
+        // find({
+        //     location: {
 
-                }
+        //         $nearSphere: {
 
-            },
-            accepted: false
-        }
-        )
-        // console.log(donations)
+        //             $geometry: {
+        //                 type: "Point",
+        //                 coordinates: [longitude, latitude]
+        //             }
+
+        //         }
+
+        //     },
+        //     accepted: false
+        // }
+        // )
+        console.log(donations)
 
         res.json(donations)
     } catch (err) {
@@ -75,12 +89,13 @@ exports.acceptDonation = async (req, res, next) => {
     let { donation_id, donor_id, peopleFed } = req.body;//id is donation id
 
     try {
+        const org = await Organisation.findById(org_id).select('name contactNumber')
+        const don = await Donor.findById(donor_id).select('name contactNumber')
 
-        const donation = await Donation.updateOne({ _id: donation_id }, { $set: { accepted: true, receiver: org_id, peopleFed } })
+        const donation = await Donation.updateOne({ _id: donation_id }, { $set: { accepted: true, receiver: org_id, peopleFed, organisationName: org.name, donorName: don.name, organisationContact: org.contactNumber, donorContact: don.contactNumber } })
 
 
         console.log(donation)
-        // const { donor } = await Donation.findById(id).select('donor')
         await Donor.updateOne({ _id: donor_id }, { $push: { donationsMade: donation_id }, $inc: { peopleFed } }) // update peoplefed
         await Organisation.updateOne({ _id: org_id }, { $push: { donationsReceived: donation_id } })
         res.status(201).json({ "accepted": "ok" })
