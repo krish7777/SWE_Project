@@ -50,7 +50,7 @@ public class profileaAdapter extends RecyclerView.Adapter<profileaAdapter.profil
     @Override
     public void onBindViewHolder(profileViewHolder discoverViewHolder, int i) {
         discoverViewHolder.title.setText(data.get(i).title);
-        discoverViewHolder.dist.setText(data.get(i).distance);
+        discoverViewHolder.dist.setText(data.get(i).peopleFed);
         discoverViewHolder.name.setText(data.get(i).name);
         discoverViewHolder.phone.setText(data.get(i).phone);
         discoverViewHolder.desc.setText(data.get(i).description);
