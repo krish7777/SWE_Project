@@ -16,10 +16,11 @@ const Donormodel = require('../models/donor')
 router.post('/nearbyorganisations', isAuth, getNearbyOrganisations)
 
 
-router.post('/makedonation', async (req, res) => {
+router.post('/makedonation', isAuth, async (req, res) => {
 
 	console.log(" this is making donation now")
-	const { id, description, latitude, longitude } = req.body
+	const { description, latitude, longitude } = req.body
+	const id = req.userId;
 	console.log(id)
 	console.log(description)
 	console.log(latitude)
@@ -53,4 +54,7 @@ router.post('/makedonation', async (req, res) => {
 	})
 
 })
+
+// router.get('/recent-donations',isAuth , )
+
 module.exports = router

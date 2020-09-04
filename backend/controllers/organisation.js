@@ -54,7 +54,8 @@ exports.getNearbyDonations = async (req, res, next) => {
 
                 }
 
-            }
+            },
+            accepted: false
         }
         )
         // console.log(donations)
@@ -70,14 +71,18 @@ exports.getNearbyDonations = async (req, res, next) => {
 
 exports.acceptDonation = async (req, res, next) => {
     let org_id = req.userId;
-    let { id, peopleFed } = req.body;//id is donation id
+    console.log("STARTINGGGG")
+    let { donation_id, donor_id, peopleFed } = req.body;//id is donation id
 
     try {
 
-        const donation = await Donation.updateOne({ _id: id }, { $set: { accepted: true, receiver: org_id, peopleFed } })
-        const { donor } = await Donation.findById(id).select('donor')
-        await Donor.updateOne({ _id, donor }, { $push: { donations: id } })
-        await Organisation.updateOne({ _id: org_id }, { $push: { donations: id } })
+        const donation = await Donation.updateOne({ _id: donation_id }, { $set: { accepted: true, receiver: org_id, peopleFed } })
+
+
+        console.log(donation)
+        // const { donor } = await Donation.findById(id).select('donor')
+        await Donor.updateOne({ _id: donor_id }, { $push: { donationsMade: donation_id }, $inc: { peopleFed } }) // update peoplefed
+        await Organisation.updateOne({ _id: org_id }, { $push: { donationsReceived: donation_id } })
         res.status(201).json({ "accepted": "ok" })
 
     } catch (err) {
