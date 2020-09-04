@@ -42,6 +42,7 @@ import com.example.swe_project.ui.profile.DonorData;
 import com.example.swe_project.ui_org.discover.DiscoverData;
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -89,15 +90,13 @@ public class ProfileFragment extends Fragment {
 
         //linearLayout = (LinearLayout) root.findViewById(R.id.linearlayout);
 
-        initialiseitems();
+        //initialiseitems();
 
         recyclerview = root.findViewById(R.id.recyclerViewprofile_org);
 
         recyclerview.setLayoutManager(new LinearLayoutManager(root.getContext()));
 
-        adapter = new profileaAdapter(items);
 
-        recyclerview.setAdapter(adapter);
 
         logoutButton=(Button) root.findViewById(R.id.logout_button);
         logoutButton.setOnClickListener(new View.OnClickListener() {
@@ -128,9 +127,23 @@ public class ProfileFragment extends Fragment {
                     String email = response.getString("email");
                     String contactNumber = response.getString("contactNumber");
                     String profilePicPath = response.getString("profilePicPath");
+                    JSONArray donationsReceived = response.getJSONArray("donationsReceived");
+
 
                     nameView.setText(name);
                     emailView.setText(email);
+
+                    for (int i = 0 ; i < donationsReceived.length(); i++) {
+                        JSONObject obj = donationsReceived.getJSONObject(i);
+                        String description = obj.getString("description");
+                        String donorName = obj.getString("organisationName");
+                        String donorContact = obj.getString("organisationContact");
+                        items.add(new profileData(donorName, "23 fed", "bunny bhai", donorContact, description));
+                    }
+
+                    adapter = new profileaAdapter(items);
+
+                    recyclerview.setAdapter(adapter);
 
                     if(profilePicPath.length()!=0){
                         profileImageView.setBackground(null);
