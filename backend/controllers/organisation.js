@@ -1,4 +1,6 @@
 const Organisation = require('../models/organisation')
+const Donation = require('../models/donation')
+const Donor = require('../models/donor')
 
 exports.getOrganisation = async (req, res, next) => {
     let id = req.userId;
@@ -25,5 +27,63 @@ exports.uploadOrganisationProfilePic = async (req, res, next) => {
             err.StatusCode = 500;
         }
         next(err);
+    }
+}
+
+exports.getNearbyDonations = async (req, res, next) => {
+    let id = req.userId;
+    try {
+        let {
+            location:
+            { coordinates:
+                [longitude, latitude]
+            }
+        } = await Organisation.findById(id).select('location')
+
+        console.log(latitude, longitude)
+
+        let donations = await Donation.find({
+            location: {
+
+                $nearSphere: {
+
+                    $geometry: {
+                        type: "Point",
+                        coordinates: [longitude, latitude]
+                    }
+
+                }
+
+            }
+        }
+        )
+        // console.log(donations)
+
+        res.json(donations)
+    } catch (err) {
+        if (!err.statusCode) {
+            err.statusCode = 500;
+        }
+        next(err)
+    }
+}
+
+exports.acceptDonation = async (req, res, next) => {
+    let org_id = req.userId;
+    let { id, peopleFed } = req.body;//id is donation id
+
+    try {
+
+        const donation = await Donation.updateOne({ _id: id }, { $set: { accepted: true, receiver: org_id, peopleFed } })
+        const { donor } = await Donation.findById(id).select('donor')
+        await Donor.updateOne({ _id, donor }, { $push: { donations: id } })
+        await Organisation.updateOne({ _id: org_id }, { $push: { donations: id } })
+        res.status(201).json({ "accepted": "ok" })
+
+    } catch (err) {
+        if (!err.statusCode) {
+            err.statusCode = 500;
+        }
+        next(err)
     }
 }

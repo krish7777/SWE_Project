@@ -11,17 +11,20 @@ const donationSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Organisation',
     },
-    timestamp: {
+    postTime: {
         type: Schema.Types.Date,
         default: Date.now()
     },
-    amount: {//NAME TO BE DECIDED
+    acceptedTime: {
+        type: Schema.Types.Date
+    },
+    peopleFed: {//NAME TO BE DECIDED
         type: Number,
 
     },
-    description:{
-      type:String,
-      required:true
+    description: {
+        type: String,
+        required: true
     },
     latitude: {
         type: Number,
@@ -30,9 +33,19 @@ const donationSchema = new Schema({
     longitude: {
         type: Number,
         required: true
+    },
+    location: {
+        type: { type: String },
+        coordinates: [Number]
+    },
+    accepted: {
+        type: Boolean,
+        default: false
     }
     //ADDITIONAL FIELDS CAN BE ADDED BELOW
 
 });
+
+donationSchema.index({ location: "2dsphere" })
 
 module.exports = mongoose.model('Donation', donationSchema);
