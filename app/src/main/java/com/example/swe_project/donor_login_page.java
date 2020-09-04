@@ -59,7 +59,7 @@ public class donor_login_page extends AppCompatActivity {
             //return;
         }
 
-        String url = getString(R.string.url);
+        String url = getString(R.string.urlsam);
         url+= "/auth/login/donor";
 
         final HashMap<String, String> params = new HashMap<String, String>();

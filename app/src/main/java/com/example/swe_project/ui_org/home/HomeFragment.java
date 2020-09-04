@@ -39,8 +39,9 @@ public class HomeFragment extends Fragment {
     private void initialiseitems() {
         items = new ArrayList<>();
         //here you will have to pull data from server and insert it based on distance from donor in this arraylist
-        items.add(new HomeData(R.drawable.home_foodphoto, "Accept Food", "Don't waste food! Help us reach our goal of zero hunger"));
+        items.add(new HomeData(R.drawable.home_foodphoto, "Accept Food", "Check out nearby food donations and find one that fits your needs"));
 
-        items.add(new HomeData(R.drawable.home_unwfp, "Find out more", "Connect with UN"));
+        items.add(new HomeData(R.drawable.home_unwfp, "Find out more", "Connect with UN world food program!"));
+        items.add(new HomeData(R.drawable.home_earth, "45", "Number of people fed:"));
     }
 }
