@@ -1,5 +1,6 @@
 const Donor = require('../models/donor');
 const Organisation = require('../models/organisation')
+const Donation = require('../models/donation')
 
 
 exports.getDonor = async (req, res, next) => {
@@ -89,6 +90,49 @@ exports.getLeaderboard = async (req, res, next) => {
     try {
         const donors = await Donor.find({}).select('name email peopleFed').sort('-peopleFed').limit(10)
         res.status(201).json({ "donors": donors })
+    } catch (err) {
+        if (!err.statusCode) {
+            err.statusCode = 500;
+        }
+        next(err);
+    }
+}
+
+exports.makeDonation = async (req, res, next) => {
+    try {
+
+        console.log("IMPORTANTTTTTT..... this is making donation now")
+        const { description, latitude, longitude } = req.body
+        const id = req.userId;
+
+        const don = await Donor.findById(id).select('name contactNumber')
+
+        console.log(id)
+        console.log(description)
+        console.log(latitude)
+        console.log(longitude)
+
+        // const donor = await Donor.findById(id)
+
+        var donation = new Donation({
+            donor: don._id,
+            description: description,
+            latitude: latitude,
+            longitude: longitude,
+            location: {
+                type: "Point",
+                coordinates: [longitude, latitude]
+            },
+            donorName: don.name,
+            donorContact: don.contactNumber
+        })
+
+        await donation.save();
+
+        res.status(201).json({ "made": "ok" })
+
+
+
     } catch (err) {
         if (!err.statusCode) {
             err.statusCode = 500;

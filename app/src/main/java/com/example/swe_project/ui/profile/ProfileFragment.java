@@ -178,7 +178,9 @@ public class ProfileFragment extends Fragment {
                         String description = obj.getString("description");
                         String organisationName = obj.getString("organisationName");
                         String organisationContact = obj.getString("organisationContact");
-                        items.add(new profileData(organisationName, "23 fed", "bunny bhai", organisationContact, description));
+                        int peopleFedCount= obj.getInt("peopleFed");
+
+                        items.add(new profileData(organisationName, Integer.toString(peopleFedCount)+" fed", "bunny bhai", organisationContact, description));
                     }
 
                     adapter = new profileaAdapter(items);

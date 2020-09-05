@@ -46,14 +46,18 @@ exports.getNearbyDonations = async (req, res, next) => {
         console.log(latitude, longitude)
 
         let donations = await Donation.
-            aggregate().
-            near({
+            aggregate()
+            .near({
                 near: {
                     type: "Point",
                     coordinates: [longitude, latitude]
                 },
                 distanceField: 'distance'
-            }).sort('distance')
+            })
+            .match({
+                accepted: false
+            })
+            .sort('distance')
 
 
         // find({
@@ -74,7 +78,7 @@ exports.getNearbyDonations = async (req, res, next) => {
         // )
         console.log(donations)
 
-        res.json(donations)
+        res.json({ "donations": donations })
     } catch (err) {
         if (!err.statusCode) {
             err.statusCode = 500;
@@ -88,16 +92,20 @@ exports.acceptDonation = async (req, res, next) => {
     console.log("STARTINGGGG")
     let { donation_id, donor_id, peopleFed } = req.body;//id is donation id
 
-    try {
-        const org = await Organisation.findById(org_id).select('name contactNumber')
-        const don = await Donor.findById(donor_id).select('name contactNumber')
+    console.log(req.body)
 
-        const donation = await Donation.updateOne({ _id: donation_id }, { $set: { accepted: true, receiver: org_id, peopleFed, organisationName: org.name, donorName: don.name, organisationContact: org.contactNumber, donorContact: don.contactNumber } })
+    try {
+
+        const org = await Organisation.findById(org_id).select('name contactNumber')
+        // const don = await Donor.findById(donor_id).select('name contactNumber')
+
+        const donation = await Donation.updateOne({ _id: donation_id }, { $set: { accepted: true, receiver: org_id, peopleFed, organisationName: org.name, organisationContact: org.contactNumber } })
 
 
         console.log(donation)
         await Donor.updateOne({ _id: donor_id }, { $push: { donationsMade: donation_id }, $inc: { peopleFed } }) // update peoplefed
         await Organisation.updateOne({ _id: org_id }, { $push: { donationsReceived: donation_id } })
+
         res.status(201).json({ "accepted": "ok" })
 
     } catch (err) {

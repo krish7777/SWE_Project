@@ -132,15 +132,16 @@ public class ProfileFragment extends Fragment {
 
                     nameView.setText(name);
                     emailView.setText(email);
-                    
+
                     items = new ArrayList<>();
 
                     for (int i = 0 ; i < donationsReceived.length(); i++) {
                         JSONObject obj = donationsReceived.getJSONObject(i);
                         String description = obj.getString("description");
-                        String donorName = obj.getString("organisationName");
-                        String donorContact = obj.getString("organisationContact");
-                        items.add(new profileData(donorName, "23 fed", "bunny bhai", donorContact, description));
+                        String donorName = obj.getString("donorName");
+                        String donorContact = obj.getString("donorContact");
+                        int peopleFed= obj.getInt("peopleFed");
+                        items.add(new profileData(donorName, Integer.toString(peopleFed)+" fed", "bunny bhai", donorContact, description));
                     }
 
                     adapter = new profileaAdapter(items);
