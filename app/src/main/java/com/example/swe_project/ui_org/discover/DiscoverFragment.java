@@ -67,8 +67,8 @@ public class DiscoverFragment extends Fragment {
 //                        int dis= Integer.parseInt(distance);
 //                        dis=dis/1000;
 
-                        items.add(new DiscoverData(donation.getString("_id"),donation.getString("donor"),donation.getString("donorName"),Math.round(distance)+" km", "title",
-                                donation.getString("donorContact"), donation.getString("description")));
+                        items.add(new DiscoverData(donation.getString("_id"),donation.getString("donor"),donation.getString("donorName"),Math.round(distance)+" km", donation.getString("description"),
+                                donation.getString("donorContact"), " "));
                         //items.add(new DiscoverData("check name", "23 km", "bunny bhai", "9154862562", "have been feeding people since '98. Aim that no one sleeps hungry"));
 
 
