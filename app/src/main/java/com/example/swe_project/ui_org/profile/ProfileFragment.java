@@ -143,7 +143,7 @@ public class ProfileFragment extends Fragment {
                     address = response.getString("address");
 
                     JSONArray donationsReceived = response.getJSONArray("donationsReceived");
-                    
+
                     nameView.setText(name);
                     emailView.setText(email);
 
@@ -155,7 +155,7 @@ public class ProfileFragment extends Fragment {
                         String donorName = obj.getString("donorName");
                         String donorContact = obj.getString("donorContact");
                         int peopleFed= obj.getInt("peopleFed");
-                        items.add(new profileData(donorName, Integer.toString(peopleFed)+" fed", "bunny bhai", donorContact, description));
+                        items.add(new profileData(donorName, Integer.toString(peopleFed)+" fed", description, donorContact, " "));
                     }
 
                     adapter = new profileaAdapter(items);
