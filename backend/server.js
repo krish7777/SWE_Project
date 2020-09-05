@@ -10,7 +10,7 @@ const authRoutes = require('./routes/auth')
 
 
 const app = express();
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 8000
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use('/images', express.static(path.join(__dirname, 'images')));
@@ -36,13 +36,14 @@ app.use((error, req, res, next) => {// Error Handling
 });
 
 
-//const MONGO_URI = "mongodb://127.0.0.1:27017/swe_project" // TEST DB
+const MONGO_URI = "mongodb://127.0.0.1:27017/swe_project" // TEST DB
 //const MONGO_URI = "mongodb+srv://arpit:arpit@cluster0.lr4ce.mongodb.net/techsite?retryWrites=true&w=majority" //-- ORIGINAL DB
 
- const MONGO_URI = "mongodb+srv://arpit:arpit@cluster0.lr4ce.mongodb.net/techsite?retryWrites=true&w=majority"
+// const MONGO_URI = "mongodb+srv://arpit:arpit@cluster0.lr4ce.mongodb.net/techsite?retryWrites=true&w=majority"
 mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
 }).then(res => {
     app.listen(PORT, () => {
         console.log('server started')
@@ -91,7 +92,6 @@ const uploadImage = multer({
     },
     // fileFilter: imageFilter
 })
-
 app.post('/upload', uploadImage.single('file'),
     (req, res) => {
         console.log("hooorayyy")

@@ -34,7 +34,7 @@
         android:fontFamily="@font/baloobold"
         android:includeFontPadding="false"
         android:layout_toRightOf="@id/profile_photo"
-        android:text="Arpit Bandejiya"
+        android:text="Name"
         android:textColor="@android:color/black"
         android:textSize="20dp"
         android:textStyle="bold" />
@@ -47,7 +47,7 @@
         android:layout_toRightOf="@id/profile_photo"
         android:layout_marginLeft="10dp"
         android:includeFontPadding="false"
-        android:text="arpitbandejiya@gmail.com"
+        android:text="email id"
         android:textSize="14dp"
 
         />
@@ -171,7 +171,7 @@
         android:fontFamily="@font/baloobold"
         android:gravity="center"
         android:includeFontPadding="false"
-        android:text="Recently Contacted Organisations"
+        android:text="Recently Accepted Donations"
         android:textColor="@android:color/black"
         android:textSize="20dp"
         android:textStyle="bold"

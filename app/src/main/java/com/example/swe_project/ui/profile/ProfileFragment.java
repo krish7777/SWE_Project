@@ -46,6 +46,7 @@ import com.example.swe_project.VolleySingleton;
 import com.example.swe_project.change_donor_details;
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
@@ -119,15 +120,17 @@ public class ProfileFragment extends Fragment {
         Log.d("profile","second check");
         //linearLayout = (LinearLayout) root.findViewById(R.id.linearlayout);
 
-        initialiseitems();
+//        initialiseitems();
+        items = new ArrayList<>();
+
         Log.d("profile","third check");
         recyclerview = root.findViewById(R.id.recyclerViewprofile);
         Log.d("profile","fourth check");
         recyclerview.setLayoutManager(new LinearLayoutManager(root.getContext()));
         Log.d("profile","fifth check");
-        adapter = new profileaAdapter(items);
-        Log.d("profile","sixth check");
-        recyclerview.setAdapter(adapter);
+//        adapter = new profileaAdapter(items);
+//        Log.d("profile","sixth check");
+//        recyclerview.setAdapter(adapter);
         Log.d("profile","seventh check");
         url=  getActivity().getString(R.string.url)+"/donor/get-details";
         imageUploadUrl= getActivity().getString(R.string.url)+"/donor/upload-profile-pic";
@@ -173,8 +176,28 @@ public class ProfileFragment extends Fragment {
                     String peopleFed = response.getString("peopleFed");
                     String moneyRaised= response.getString("moneyRaised");
                     String profilePicPath = response.getString("profilePicPath");
-                    donorData=new DonorData(name,email,contactNumber,peopleFed,moneyRaised, profilePicPath);
+
+                    //donorData=new DonorData(name,email,contactNumber,peopleFed,moneyRaised, profilePicPath);
                     contactnumber = contactNumber;
+                    JSONArray donationsMade = response.getJSONArray("donationsMade");
+                    Log.d("Resp dona",donationsMade.toString());
+                    donorData=new DonorData(name,email,contactNumber,moneyRaised, peopleFed, profilePicPath);
+
+
+                    for (int i = 0 ; i < donationsMade.length(); i++) {
+                        JSONObject obj = donationsMade.getJSONObject(i);
+                        String description = obj.getString("description");
+                        String organisationName = obj.getString("organisationName");
+                        String organisationContact = obj.getString("organisationContact");
+                        int peopleFedCount= obj.getInt("peopleFed");
+
+                        items.add(new profileData(organisationName, Integer.toString(peopleFedCount)+" fed", "bunny bhai", organisationContact, description));
+                    }
+
+                    adapter = new profileaAdapter(items);
+                    Log.d("profile","sixth check");
+                    recyclerview.setAdapter(adapter);
+
                     nameView.setText(donorData.name);
                     emailView.setText(donorData.email);
                     peopleFedView.setText(donorData.peopleFed);

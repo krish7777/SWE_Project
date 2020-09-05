@@ -171,7 +171,7 @@
         android:fontFamily="@font/baloobold"
         android:gravity="center"
         android:includeFontPadding="false"
-        android:text="Recently Contacted Organisations"
+        android:text="Recently Made Donations"
         android:textColor="@android:color/black"
         android:textSize="20dp"
         android:textStyle="bold"

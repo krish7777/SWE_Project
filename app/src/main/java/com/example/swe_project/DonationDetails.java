@@ -58,7 +58,7 @@ public class DonationDetails extends AppCompatActivity {
             params.put("id",id);
             params.put("description",details.getText().toString());
             params.put("latitude",Double.toString(reqLocation.latitude));
-            params.put("longitude",Double.toString(reqLocation.latitude));
+            params.put("longitude",Double.toString(reqLocation.longitude));
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, new JSONObject(params), new Response.Listener<JSONObject>() {
                 @Override

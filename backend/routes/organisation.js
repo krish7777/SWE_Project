@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 isAuth = require('../middlewares/isAuth');
 
-const { getOrganisation, uploadOrganisationProfilePic } = require('../controllers/organisation');
+const { getOrganisation, uploadOrganisationProfilePic, getNearbyDonations, acceptDonation } = require('../controllers/organisation');
 
 const OrganisationModel = require('../models/organisation')
 const Donationmodel = require('../models/donation')
@@ -13,6 +13,8 @@ router.route('/').get((req, res) => {
 	res.send("Working fine");
 	res.status(400);
 })
+
+router.get('/nearby-donations', isAuth, getNearbyDonations)
 
 
 router.post('/upload-profile-pic', isAuth, uploadOrganisationProfilePic);
@@ -49,6 +51,8 @@ router.post('/update',async (req,res)=>{
 
 
 })
+
+router.post('/accept-donation', isAuth, acceptDonation)
 
 
 

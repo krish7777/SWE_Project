@@ -38,11 +38,18 @@ const donorSchema = new Schema({
         type: Number,
         required: true
     },
+    location: {
+        type: { type: String },
+        coordinates: [Number]
+    },
     donationsMade: [{
         type: Schema.Types.ObjectId,
         ref: 'Donation'
     }]
     //ADDITIONAL FIELDS CAN BE ADDED BELOW
 });
+
+donorSchema.index({ location: "2dsphere" });
+
 
 module.exports = mongoose.model('Donor', donorSchema);

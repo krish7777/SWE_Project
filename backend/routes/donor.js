@@ -39,7 +39,7 @@ router.post('/update',async (req,res)=>{
 			console.log("error in updating")
 
 				donor.email = email
-				donor.password =  await bcrypt.hash(password, 12);
+				donor.password = password
 				donor.name= name
 				donor.contactNumber= contactNumber
 				donor.longitude = longitude

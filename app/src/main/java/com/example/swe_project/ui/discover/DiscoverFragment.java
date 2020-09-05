@@ -65,15 +65,20 @@ public class DiscoverFragment extends Fragment {
 
                     for(int i=0;i<organisations.length();i++){
                         JSONObject organisation = organisations.getJSONObject(i);
+                        Double distance = organisation.getDouble("distance");
+                        distance=distance/1000;
 
-                        items.add(new DiscoverData(organisation.getString("name"), "5 km", organisation.getString("email"),
-                                "9154862562", organisation.getString("address")));
-                        items.add(new DiscoverData("check name", "23 km", "bunny bhai", "9154862562", "have been feeding people since '98. Aim that no one sleeps hungry"));
+//                        int dis= Integer.parseInt(distance);
+//                        dis=dis/1000;
+
+                        items.add(new DiscoverData(organisation.getString("name"),Math.round(distance)+" km", organisation.getString("email"),
+                                organisation.getString("contactNumber"), organisation.getString("address")));
+                        //items.add(new DiscoverData("check name", "23 km", "bunny bhai", "9154862562", "have been feeding people since '98. Aim that no one sleeps hungry"));
 
                         String id = organisation.getString("email");
                         Log.d("Response",id);
                     }
-                    initialiseitems();
+                   // initialiseitems();
 
 
                     adapter = new DiscoverAdapter(items);
