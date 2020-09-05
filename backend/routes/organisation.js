@@ -21,30 +21,34 @@ router.post('/upload-profile-pic', isAuth, uploadOrganisationProfilePic);
 
 router.get('/get-details', isAuth, getOrganisation);
 
-router.post('/update',async (req,res)=>{
+router.post('/update', async (req, res) => {
 	console.log("this is the update ")
 	console.log(req.body)
-	const {id,email,password,name,description,address,contactNumber,latitude,longitude} = req.body
+	const { id, email, password, name, description, address, contactNumber, latitude, longitude } = req.body
 
 	console.log(id)
 
-	OrganisationModel.findById(id,async (err,organisation)=>{
-		if(err)
+	OrganisationModel.findById(id, async (err, organisation) => {
+		if (err)
 			console.log("error in updating")
-			organisation.email= email
-			organisation.password= await bcrypt.hash(password, 12);
-			organisation.name= name
-			organisation.description= description
-			organisation.contactNumber= contactNumber
-			organisation.address= address
-			organisation.latitude= latitude
-			organisation.longitude= longitude
+		organisation.email = email
+		organisation.password = await bcrypt.hash(password, 12);
+		organisation.name = name
+		organisation.description = description
+		organisation.contactNumber = contactNumber
+		organisation.address = address
+		organisation.latitude = latitude
+		organisation.longitude = longitude
+		organisation.location = {
+			type: "Point",
+			coordinates: [longitude, latitude]
+		}
 
-			await organisation.save((err)=>{
-				if(err)
-					console.log(err)
-				console.log(organisation)
-				res.status(201).json({"messsage":"updates saved"})
+		await organisation.save((err) => {
+			if (err)
+				console.log(err)
+			console.log(organisation)
+			res.status(201).json({ "messsage": "updates saved" })
 		})
 
 	})

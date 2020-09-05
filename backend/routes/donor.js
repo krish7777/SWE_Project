@@ -19,28 +19,32 @@ router.get('/leaderboard', getLeaderboard)
 
 router.post('/makedonation', isAuth, makeDonation)
 
-router.post('/update',async (req,res)=>{
+router.post('/update', async (req, res) => {
 	console.log("this is the update ")
 	console.log(req.body)
-	const {id,email,password,name,contactNumber,latitude,longitude} = req.body
+	const { id, email, password, name, contactNumber, latitude, longitude } = req.body
 
 	console.log(id)
 
-	Donormodel.findById(id,async (err,donor)=>{
-		if(err)
+	Donormodel.findById(id, async (err, donor) => {
+		if (err)
 			console.log("error in updating")
 
-				donor.email = email
-				donor.password = password
-				donor.name= name
-				donor.contactNumber= contactNumber
-				donor.longitude = longitude
-				donor.latitude = latitude
-			await donor.save((err)=>{
-				if(err)
-					console.log(err)
-				console.log(donor)
-				res.status(201).json({"messsage":"updates saved"})
+		donor.email = email
+		donor.password = password
+		donor.name = name
+		donor.contactNumber = contactNumber
+		donor.longitude = longitude
+		donor.latitude = latitude
+		donor.location = {
+			type: "Point",
+			coordinates: [longitude, latitude]
+		}
+		await donor.save((err) => {
+			if (err)
+				console.log(err)
+			console.log(donor)
+			res.status(201).json({ "messsage": "updates saved" })
 		})
 
 	})
