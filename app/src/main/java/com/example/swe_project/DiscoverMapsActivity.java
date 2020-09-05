@@ -43,7 +43,7 @@ public class DiscoverMapsActivity extends FragmentActivity implements OnMapReady
     Marker mCurrLocationMarker;
     GoogleApiClient mGoogleApiClient;
     LocationRequest mLocationRequest;
-
+    LatLng location;
     Location currentLocation;
     //FusedLocationProviderClient fusedLocationProviderClient;
 
@@ -113,7 +113,7 @@ public class DiscoverMapsActivity extends FragmentActivity implements OnMapReady
     private void openActivity() {
 
         Intent intent = new Intent(this, DonationDetails.class);
-
+        intent.putExtra("mapReply",location);
         startActivity(intent);
     }
 
@@ -220,7 +220,7 @@ public class DiscoverMapsActivity extends FragmentActivity implements OnMapReady
             @Override
             public void onMapClick(LatLng latLng) {
                 MarkerOptions markerOptions = new MarkerOptions();
-
+                location = latLng;
                 markerOptions.draggable(true);
                 markerOptions.position(latLng);
 

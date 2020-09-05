@@ -43,8 +43,10 @@ import com.example.swe_project.R;
 import com.example.swe_project.UserActivity;
 import com.example.swe_project.VolleyMultipartRequest;
 import com.example.swe_project.VolleySingleton;
+import com.example.swe_project.change_donor_details;
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
@@ -79,12 +81,13 @@ public class ProfileFragment extends Fragment {
     private Bitmap bitmap;
     private String filePath;
     private String imageUrl;
-
+    private  String contactnumber;
     private TextView nameView;
     private TextView emailView;
     private TextView peopleFedView;
     private TextView moneyRaisedView;
     private Button logoutButton;
+    private  Button updateButton;
     String url;
     String imageUploadUrl;
     String ROOT_URL;
@@ -117,15 +120,17 @@ public class ProfileFragment extends Fragment {
         Log.d("profile","second check");
         //linearLayout = (LinearLayout) root.findViewById(R.id.linearlayout);
 
-        initialiseitems();
+//        initialiseitems();
+        items = new ArrayList<>();
+
         Log.d("profile","third check");
         recyclerview = root.findViewById(R.id.recyclerViewprofile);
         Log.d("profile","fourth check");
         recyclerview.setLayoutManager(new LinearLayoutManager(root.getContext()));
         Log.d("profile","fifth check");
-        adapter = new profileaAdapter(items);
-        Log.d("profile","sixth check");
-        recyclerview.setAdapter(adapter);
+//        adapter = new profileaAdapter(items);
+//        Log.d("profile","sixth check");
+//        recyclerview.setAdapter(adapter);
         Log.d("profile","seventh check");
         url=  getActivity().getString(R.string.url)+"/donor/get-details";
         imageUploadUrl= getActivity().getString(R.string.url)+"/donor/upload-profile-pic";
@@ -138,7 +143,13 @@ public class ProfileFragment extends Fragment {
         moneyRaisedView=(TextView)root.findViewById(R.id.donor_money_raised);
         profileImageView= (ImageView) root.findViewById(R.id.profile_photo);
         logoutButton=(Button) root.findViewById(R.id.logout_button);
-
+        updateButton = (Button) root.findViewById(R.id.update);
+        updateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeprofile(view);
+            }
+        });
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -165,7 +176,27 @@ public class ProfileFragment extends Fragment {
                     String peopleFed = response.getString("peopleFed");
                     String moneyRaised= response.getString("moneyRaised");
                     String profilePicPath = response.getString("profilePicPath");
-                    donorData=new DonorData(name,email,contactNumber,peopleFed,moneyRaised, profilePicPath);
+
+                    //donorData=new DonorData(name,email,contactNumber,peopleFed,moneyRaised, profilePicPath);
+                    contactnumber = contactNumber;
+                    JSONArray donationsMade = response.getJSONArray("donationsMade");
+                    Log.d("Resp dona",donationsMade.toString());
+                    donorData=new DonorData(name,email,contactNumber,moneyRaised, peopleFed, profilePicPath);
+
+
+                    for (int i = 0 ; i < donationsMade.length(); i++) {
+                        JSONObject obj = donationsMade.getJSONObject(i);
+                        String description = obj.getString("description");
+                        String organisationName = obj.getString("organisationName");
+                        String organisationContact = obj.getString("organisationContact");
+                        int peopleFedCount= obj.getInt("peopleFed");
+
+                        items.add(new profileData(organisationName, Integer.toString(peopleFedCount)+" fed", "bunny bhai", organisationContact, description));
+                    }
+
+                    adapter = new profileaAdapter(items);
+                    Log.d("profile","sixth check");
+                    recyclerview.setAdapter(adapter);
 
                     nameView.setText(donorData.name);
                     emailView.setText(donorData.email);
@@ -402,5 +433,17 @@ public class ProfileFragment extends Fragment {
 
     }
 
+    public void changeprofile(View view){
+        //nameView.setText(donorData.name);
+        //emailView.setText(donorData.email);
+
+        Intent intent = new Intent(getActivity(), change_donor_details.class);
+        intent.putExtra("name",nameView.getText().toString());
+        intent.putExtra("email",emailView.getText().toString());
+        intent.putExtra("contact",contactnumber);
+        //intent.putExtra("password",pswd)
+        startActivity(intent);
+
+    }
 
 }

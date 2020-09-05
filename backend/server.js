@@ -36,13 +36,14 @@ app.use((error, req, res, next) => {// Error Handling
 });
 
 
-//const MONGO_URI = "mongodb://127.0.0.1:27017/swe_project" // TEST DB
-  const MONGO_URI = "mongodb+srv://arpit:arpit@cluster0.lr4ce.mongodb.net/techsite?retryWrites=true&w=majority" //-- ORIGINAL DB
+// const MONGO_URI = "mongodb://127.0.0.1:27017/swe_project" // TEST DB
+const MONGO_URI = "mongodb+srv://arpit:arpit@cluster0.lr4ce.mongodb.net/techsite?retryWrites=true&w=majority" //-- ORIGINAL DB
 
 // const MONGO_URI = "mongodb+srv://arpit:arpit@cluster0.lr4ce.mongodb.net/techsite?retryWrites=true&w=majority"
 mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
 }).then(res => {
     app.listen(PORT, () => {
         console.log('server started')
@@ -91,14 +92,12 @@ const uploadImage = multer({
     },
     // fileFilter: imageFilter
 })
-
 app.post('/upload', uploadImage.single('file'),
     (req, res) => {
         console.log("hooorayyy")
         console.log('req.file', req.file)
         res.json({
-            "location": `http://192.168.1.5:8000/images/${req.file.filename}`, "originalName": req.file.originalname
+            "location": `http://192.168.1.3:8000/images/${req.file.filename}`, "originalName": req.file.originalname
         })//PUT IP ADDRESS HERE
     }
 )
-

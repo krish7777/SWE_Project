@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const organisationSchema = new Schema({
+let organisationSchema = new Schema({
     email: {
         type: String,
         required: true
@@ -38,11 +38,18 @@ const organisationSchema = new Schema({
         type: Number,
         required: true
     },
+    location: {
+        type: { type: String },
+        coordinates: [Number]
+    },
     donationsReceived: [{
         type: Schema.Types.ObjectId,
         ref: 'Donation'
     }],
     //ADDITIONAL FIELDS CAN BE ADDED BELOW
 });
+
+organisationSchema.index({ location: "2dsphere" });
+
 
 module.exports = mongoose.model('Organisation', organisationSchema);
