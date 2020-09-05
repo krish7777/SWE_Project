@@ -38,6 +38,7 @@ import com.example.swe_project.MainActivity;
 import com.example.swe_project.R;
 import com.example.swe_project.VolleyMultipartRequest;
 import com.example.swe_project.VolleySingleton;
+import com.example.swe_project.change_organisation_details;
 import com.example.swe_project.ui.profile.DonorData;
 import com.example.swe_project.ui_org.discover.DiscoverData;
 import com.squareup.picasso.Picasso;
@@ -76,10 +77,14 @@ public class ProfileFragment extends Fragment {
     String url;
     String imageUploadUrl;
     String ROOT_URL;
-
+    private  Button update;
     DonorData donorData;
 
-
+    private String name;
+    private String email;
+    private String description;
+    private String contactnumber;
+    private String address;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -106,7 +111,13 @@ public class ProfileFragment extends Fragment {
                 logout();
             }
         });
-
+        update =(Button) root.findViewById(R.id.update);
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                update();
+            }
+        });
         url=  getActivity().getString(R.string.url)+"/organisation/get-details";
         imageUploadUrl= getActivity().getString(R.string.url)+"/organisation/upload-profile-pic";
         ROOT_URL= getActivity().getString(R.string.url)+"/upload";
@@ -124,11 +135,12 @@ public class ProfileFragment extends Fragment {
             public void onResponse(JSONObject response) {
                 try {
                     Log.d("Response here", response.toString());
-                    String name = response.getString("name");
-                    String email = response.getString("email");
-                    String contactNumber = response.getString("contactNumber");
+                    name = response.getString("name");
+                    email = response.getString("email");
+                    contactnumber = response.getString("contactNumber");
                     String profilePicPath = response.getString("profilePicPath");
-
+                    description = response.getString("description");
+                    address = response.getString("address");
                     nameView.setText(name);
                     emailView.setText(email);
 
@@ -338,6 +350,16 @@ public class ProfileFragment extends Fragment {
     public void logout() {
         AuthChecker.logout(getActivity());
         Intent intent = new Intent(getActivity(), MainActivity.class);
+        startActivity(intent);
+    }
+    public void update(){
+
+        Intent intent = new Intent(getActivity(), change_organisation_details.class);
+        intent.putExtra("email",email);
+        intent.putExtra("name",name);
+        intent.putExtra("description",description);
+        intent.putExtra("contact",contactnumber);
+        intent.putExtra("address",address);
         startActivity(intent);
     }
     private void initialiseitems() {

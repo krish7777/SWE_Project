@@ -53,12 +53,24 @@
         />
         <Button
             android:id="@+id/logout_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Logout"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="2dp"
+            android:background="@drawable/logout_button"
+            android:textStyle="bold" />
+        <Button
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/update"
+            android:background="@drawable/edit_button"
             android:layout_below="@id/emailid"
+            android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/profile_photo" />
+            android:layout_toRightOf="@id/profile_photo"
+            />
+
     </RelativeLayout>
     </androidx.appcompat.widget.LinearLayoutCompat>
 

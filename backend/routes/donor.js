@@ -1,12 +1,11 @@
 const router = require('express').Router();
-
+const bcrypt = require('bcryptjs');
 const isAuth = require('../middlewares/isAuth');
 
 const { getDonor, uploadDonorProfilePic } = require('../controllers/donor');
 
 
 router.post('/upload-profile-pic', isAuth, uploadDonorProfilePic)
-
 router.get('/get-details', isAuth, getDonor)
 
 const OrganisationModel = require('../models/organisation')
@@ -24,9 +23,40 @@ router.post('/nearbyorganisations', (req, res) => {
 			res.status(200).json({ "organisations": organisation })
 		}
 
-	}).limit(2)
+	}).limit(15)
 
 })
+
+router.post('/update',async (req,res)=>{
+	console.log("this is the update ")
+	console.log(req.body)
+	const {id,email,password,name,contactNumber,latitude,longitude} = req.body
+
+	console.log(id)
+
+	Donormodel.findById(id,async (err,donor)=>{
+		if(err)
+			console.log("error in updating")
+
+				donor.email = email
+				donor.password =  await bcrypt.hash(password, 12);
+				donor.name= name
+				donor.contactNumber= contactNumber
+				donor.longitude = longitude
+				donor.latitude = latitude
+			await donor.save((err)=>{
+				if(err)
+					console.log(err)
+				console.log(donor)
+				res.status(201).json({"messsage":"updates saved"})
+		})
+
+	})
+
+
+})
+
+
 router.post('/makedonation',async (req,res)=>{
 
 	console.log(" this is making donation now")
@@ -35,7 +65,7 @@ router.post('/makedonation',async (req,res)=>{
 	console.log(description)
 	console.log(latitude)
 	console.log(longitude)
-	
+
 	Donormodel.findById(id).then((donor)=>{
 		if(!donor)
 			throw new Error()

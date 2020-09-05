@@ -97,7 +97,7 @@ app.post('/upload', uploadImage.single('file'),
         console.log("hooorayyy")
         console.log('req.file', req.file)
         res.json({
-            "location": `http://192.168.1.1:5000/images/${req.file.filename}`, "originalName": req.file.originalname
+            "location": `http://192.168.1.103:5000/images/${req.file.filename}`, "originalName": req.file.originalname
         })//PUT IP ADDRESS HERE
     }
 )

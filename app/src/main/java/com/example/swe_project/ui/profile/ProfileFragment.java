@@ -43,6 +43,7 @@ import com.example.swe_project.R;
 import com.example.swe_project.UserActivity;
 import com.example.swe_project.VolleyMultipartRequest;
 import com.example.swe_project.VolleySingleton;
+import com.example.swe_project.change_donor_details;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
@@ -79,12 +80,13 @@ public class ProfileFragment extends Fragment {
     private Bitmap bitmap;
     private String filePath;
     private String imageUrl;
-
+    private  String contactnumber;
     private TextView nameView;
     private TextView emailView;
     private TextView peopleFedView;
     private TextView moneyRaisedView;
     private Button logoutButton;
+    private  Button updateButton;
     String url;
     String imageUploadUrl;
     String ROOT_URL;
@@ -138,7 +140,13 @@ public class ProfileFragment extends Fragment {
         moneyRaisedView=(TextView)root.findViewById(R.id.donor_money_raised);
         profileImageView= (ImageView) root.findViewById(R.id.profile_photo);
         logoutButton=(Button) root.findViewById(R.id.logout_button);
-
+        updateButton = (Button) root.findViewById(R.id.update);
+        updateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeprofile(view);
+            }
+        });
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -166,7 +174,7 @@ public class ProfileFragment extends Fragment {
                     String moneyRaised= response.getString("moneyRaised");
                     String profilePicPath = response.getString("profilePicPath");
                     donorData=new DonorData(name,email,contactNumber,peopleFed,moneyRaised, profilePicPath);
-
+                    contactnumber = contactNumber;
                     nameView.setText(donorData.name);
                     emailView.setText(donorData.email);
                     peopleFedView.setText(donorData.peopleFed);
@@ -402,5 +410,17 @@ public class ProfileFragment extends Fragment {
 
     }
 
+    public void changeprofile(View view){
+        //nameView.setText(donorData.name);
+        //emailView.setText(donorData.email);
+
+        Intent intent = new Intent(getActivity(), change_donor_details.class);
+        intent.putExtra("name",nameView.getText().toString());
+        intent.putExtra("email",emailView.getText().toString());
+        intent.putExtra("contact",contactnumber);
+        //intent.putExtra("password",pswd)
+        startActivity(intent);
+
+    }
 
 }
