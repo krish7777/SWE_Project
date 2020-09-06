@@ -45,9 +45,6 @@ Use *ifconfig* command in your terminal/command prompt.
 3. How to check that both are on the same network?<br/> 
 For checking purposes of that, we have created a **\<IP-address\>:8000/test** route, if you are able to open the link in your mobile browser, voilà you are connected!
 
-## Overview:
-
-
 ## Authors of the Project :
 
 - **Arpit Bandejiya** (CS18B003)
