@@ -104,7 +104,7 @@ exports.acceptDonation = async (req, res, next) => {
 
         console.log(donation)
         await Donor.updateOne({ _id: donor_id }, { $push: { donationsMade: donation_id }, $inc: { peopleFed } }) // update peoplefed
-        await Organisation.updateOne({ _id: org_id }, { $push: { donationsReceived: donation_id } })
+        await Organisation.updateOne({ _id: org_id }, { $push: { donationsReceived: donation_id }, $inc: { peopleFed } })
 
         res.status(201).json({ "accepted": "ok" })
 

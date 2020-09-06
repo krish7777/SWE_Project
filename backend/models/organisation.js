@@ -30,6 +30,10 @@ let organisationSchema = new Schema({
         type: String,
         required: true
     },
+    peopleFed: {
+        type: Number,
+        default: 0
+    },
     latitude: {
         type: Number,
         required: true

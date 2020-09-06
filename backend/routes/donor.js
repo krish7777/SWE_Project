@@ -2,7 +2,6 @@ const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const isAuth = require('../middlewares/isAuth');
 
-const { getDonor, uploadDonorProfilePic, getLeaderboard } = require('../controllers/donor');
 const { getDonor, uploadDonorProfilePic, getNearbyOrganisations, getLeaderboard, makeDonation } = require('../controllers/donor');
 
 

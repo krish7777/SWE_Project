@@ -201,7 +201,7 @@ public class ProfileFragment extends Fragment {
                     nameView.setText(donorData.name);
                     emailView.setText(donorData.email);
                     peopleFedView.setText(donorData.peopleFed);
-                    moneyRaisedView.setText(donorData.moneyRaised);
+                    moneyRaisedView.setText(Integer.toString(donationsMade.length()));
 
                     if(donorData.profilePicPath.length()!=0){
                         profileImageView.setBackground(null);

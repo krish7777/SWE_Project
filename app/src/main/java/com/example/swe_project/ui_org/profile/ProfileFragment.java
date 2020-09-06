@@ -86,6 +86,7 @@ public class ProfileFragment extends Fragment {
     private String description;
     private String contactnumber;
     private String address;
+    private String peopleFed;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -123,7 +124,7 @@ public class ProfileFragment extends Fragment {
 
         nameView= (TextView)root.findViewById(R.id.full_name);
         emailView=(TextView)root.findViewById(R.id.emailid);
-        peopleFedView=(TextView)root.findViewById(R.id.food_fed);
+        peopleFedView=(TextView)root.findViewById(R.id.food_fed_count);
         moneyRaisedView=(TextView)root.findViewById(R.id.food_donated_count);
         profileImageView= (ImageView) root.findViewById(R.id.profile_photo);
         logoutButton=(Button) root.findViewById(R.id.logout_button);
@@ -141,11 +142,14 @@ public class ProfileFragment extends Fragment {
 
                     description = response.getString("description");
                     address = response.getString("address");
+                    peopleFed= response.getString("peopleFed");
 
                     JSONArray donationsReceived = response.getJSONArray("donationsReceived");
 
                     nameView.setText(name);
                     emailView.setText(email);
+                    peopleFedView.setText(peopleFed);
+                    moneyRaisedView.setText(Integer.toString(donationsReceived.length()));
 
                     items = new ArrayList<>();
 
