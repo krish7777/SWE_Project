@@ -49,7 +49,7 @@ After ensuring that you have installed the requirements in your machine follow t
 ## Overview:
 
 
-### Authors of the Project :
+## Authors of the Project :
 
 - **Arpit Bandejiya** (CS18B003)
 - **Dinkar** (CS18B010)
