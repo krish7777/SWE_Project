@@ -26,32 +26,32 @@ After ensuring that you have installed the requirements in your machine follow t
   * Go to the *SWE_Project/backend* 
   * run the following commad *npm server.js*
   
- * Open the Android Studio and run the process in your preferrred device.
- 
+* Open the Android Studio and run the process in your preferrred device.<br/>
+**IMPORTANT**:For login you can either create a new id(We are checking each field with valid entry so be carefull while filling it :slightly_smiling_face: or use these credentials:
+   * For donor: 
+       * emial id:cs18b003@iittp.ac.in
+       * password: pass
+   * For organisation:
+       * email id: cs18b010@iittp.ac.in
+       * password: pass
+       
 ## FAQ's
 
-1. Which IP-address you are talking about?
-The IP-address depends on your choice of device, which you use to run the app as the server is not yet deployed on internet you have to locally create the server and connect your device on it. If you are using the system in-built emulator use the locahost ip of your machine, in case you are using a external device first of all ensure that both the mobile and your machine are connected to the same main network then provide the ip address of your network. 
+1. Which IP-address you are talking about? 
+* The IP-address depends on your choice of device, which you use to run the app as the server is not yet deployed on internet you have to locally create the server and connect your device on it. If you are using the system in-built emulator use the locahost ip of your machine, in case you are using a external device first of all ensure that both the mobile and your machine are connected to the same main network then provide the ip address of your network. 
 
-2. How to check the IP-address of the main network?
-Use ifconfig command in your terminal/command prompt.
+2. How to check the IP-address of the main network? 
+* Use ifconfig command in your terminal/command prompt.
 
-3. How to check that both are on the same network?
-For checking purposes of that, we have created a **\<IP-address\>:8000/test** route, if you are able to open the link in your mobile browser, voilà you are connected!
+3. How to check that both are on the same network? 
+* For checking purposes of that, we have created a **\<IP-address\>:8000/test** route, if you are able to open the link in your mobile browser, voilà you are connected!
 
-
-
- 
- 
-  
+## Overview:
 
 
+### Authors of the Project :
 
-### Project Done By :
-
-![profile page](/images/1.jpeg)
-
-- Arpit Bandejia (CS18B003)
-- Dinkar (CS18B010)
-- Krishnendu Sudheesh (CS18B020)
-- Shreyansh Mehra (CS18B042)
+- **Arpit Bandejiya** (CS18B003)
+- **Dinkar** (CS18B010)
+- **Krishnendu Sudheesh** (CS18B020)
+- **Shreyansh Mehra** (CS18B042)
