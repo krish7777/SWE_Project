@@ -17,7 +17,11 @@ exports.registerDonor = async (req, res, next) => {
                 name: name,
                 contactNumber: contactNumber,
                 latitude: latitude,
-                longitude: longitude
+                longitude: longitude,
+                location: {
+                    type: "Point",
+                    coordinates: [longitude, latitude]
+                }
             });
             const result = await donor.save();
             console.log("result", result)
@@ -50,7 +54,11 @@ exports.registerOrganisation = async (req, res, next) => {
                 contactNumber: contactNumber,
                 address: address,
                 latitude: latitude,
-                longitude: longitude
+                longitude: longitude,
+                location: {
+                    type: "Point",
+                    coordinates: [longitude, latitude]
+                }
             });
             const result = await organisation.save();
             console.log("result", result)
