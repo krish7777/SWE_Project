@@ -23,7 +23,7 @@ After ensuring that you have installed the requirements in your machine follow t
 
 * Start the nodejs server
   * Go to the *SWE_Project/backend* 
-  * run the following commad *npm server.js*
+  * run the following commad *npm start*
   
 * Open the Android Studio and run the process in your preferrred device.<br/>
 **IMPORTANT**:For login you can either create a new id(We are checking each field with valid entry so be carefull while filling it :slightly_smiling_face: or use these credentials:
