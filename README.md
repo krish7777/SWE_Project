@@ -59,7 +59,7 @@ Fill in the details and tag your location on map for address purpose then click 
 **Home** : Shows option for Post Donation or accept Donation respectively for Donor or Organisation.<br/>
 **Discover** : provides Your info about nearby Donors or Organisation respectively for Organisation or Donor in a ordered manner based on distance from your location. <br/>
 **Communtiy** : Displays leaderboard stats.<br/>
-**Profile** : shows your details and provide optio to edit detail.<br/>
+**Profile** : shows your details and provide option to edit detail.<br/>
 
 6. Home page for Donor <br/>
 ![](images/4.jpeg)<br/> 
