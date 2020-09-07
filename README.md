@@ -57,7 +57,7 @@ Fill in the details and tag your location on map for address purpose then click 
 
 **UI Consist of 4 pages** <br/>
 **Home** : Shows option for Post Donation or accept Donation respectively for Donor or Organisation.<br/>
-**Discover** : provides Your info about nearby Donors or Organisation respectively for Organisation or Donor. <br/>
+**Discover** : provides Your info about nearby Donors or Organisation respectively for Organisation or Donor in a ordered manner based on distance from your location. <br/>
 **Communtiy** : Displays leaderboard stats.<br/>
 **Profile** : shows your details and provide optio to edit detail.<br/>
 
