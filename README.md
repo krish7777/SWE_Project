@@ -34,7 +34,7 @@ After ensuring that you have installed the requirements in your machine follow t
        * email id: cs18b010@iittp.ac.in
        * password: pass
        
-## Features of the app
+## App overview
 1. Home Page When App is launched <br/> 
 ![](images/7.jpeg)<br/> 
 click Appropriate button regarding the action you want to perform.<br/> 
@@ -96,6 +96,30 @@ You can see leaderboard and nearby events by clicking on specific card <br/>
 ![](images/18.jpeg)<br/> 
 You can see your details and other options here ex by clicking on edit option you can edit details <br/>
 ![](images/19.jpeg)<br/> 
+
+
+## App Functionality
+
+### Donor
+
+1. Registration
+2. Login
+3. Customise your profile
+4. Discover organisations based on proximity
+5. Post food donations
+6. Upload profile picture
+7. Leaderboard : Donations
+
+### Organisation
+
+1. Registration
+2. Login
+3. Custom profile
+4. Discover food donations based on proximity
+5. Accept donations
+6. Upload profile picture
+8. Leaderboard
+    
 
 ## FAQ's
 
