@@ -36,23 +36,23 @@ After ensuring that you have installed the requirements in your machine follow t
        
 ## App overview
 1. Home Page When App is launched <br/> 
-![](images/7.jpeg)<br/> 
-click Appropriate button regarding the action you want to perform.<br/> 
+<img src="https://github.com/krish7777/SWE_Project/blob/master/images/7.jpeg" width="500" height="1000"> <br/> 
+click Appropriate button regarding the action you want to perform.<br/>
 
 2. Donor Login page <br/>
-![](images/8.jpeg)<br/> 
+<img src="https://github.com/krish7777/SWE_Project/blob/master/images/8.jpeg" width="500" height="1000"><br/> 
 Enter valid credentials to login. <br/> 
 
 3. Organisation Login page <br/>
-![](images/13.jpeg)<br/> 
+<img src="https://github.com/krish7777/SWE_Project/blob/master/images/13.jpeg" width="500" height="1000"><br/> 
 Enter valid credentials to login. <br/>
 
 4. Registration page option <br/>
-![](images/22.jpeg)<br/> 
+<img src="https://github.com/krish7777/SWE_Project/blob/master/images/22.jpeg" width="500" height="1000"><br/> 
 Click on appropriate button for registration. <br/>
 
 5. Registration page for Donor <br/>
-![](images/23.jpeg)<br/> 
+<img src="https://github.com/krish7777/SWE_Project/blob/master/images/23.jpeg" width="500" height="1000"><br/> 
 Fill in the details and tag your location on map for address purpose then click register. <br/>
 
 **UI Consist of 4 pages** <br/>
@@ -62,46 +62,47 @@ Fill in the details and tag your location on map for address purpose then click 
 **Profile** : shows your details and provide option to edit detail.<br/>
 
 6. Home page for Donor <br/>
-![](images/4.jpeg)<br/> 
+<img src="https://github.com/krish7777/SWE_Project/blob/master/images/4.jpeg" width="500" height="1000"><br/> 
 scroll horizontally for more options and Click on appropriate button for making a donation. <br/>
 
 7. Choose location to mark donation <br/>
-![](images/9.jpeg)<br/> 
+<img src="https://github.com/krish7777/SWE_Project/blob/master/images/9.jpeg" width="500" height="1000"><br/> 
 search and mark the location to add donation then click on add details. <br/>
 
 8. Fill Donation Details <br/>
-![](images/11.jpeg)<br/> 
+<img src="https://github.com/krish7777/SWE_Project/blob/master/images/11.jpeg" width="500" height="1000"><br/> 
 Enter Donation details and click on done. <br/>
 
 9. Discover page Donor<br/>
-![](images/3.jpeg)<br/> 
+<img src="https://github.com/krish7777/SWE_Project/blob/master/images/3.jpeg" width="500" height="1000"><br/> 
 You can see nearby NGO list here. <br/>
 
 10. communtiy page Donor<br/>
-![](images/2.jpeg)<br/> 
+<img src="https://github.com/krish7777/SWE_Project/blob/master/images/2.jpeg" width="500" height="1000"><br/> 
 You can see leaderboard and nearby events by clicking on specific card. <br/>
 
 11. Profile page Donor<br/>
-![](images/1.jpeg)<br/> 
+<img src="https://github.com/krish7777/SWE_Project/blob/master/images/1.jpeg" width="500" height="1000"><br/> 
 You can see your details and other options here. <br/>
 
 12. Home page for organisation <br/>
-![](images/14.jpeg)<br/> 
+<img src="https://github.com/krish7777/SWE_Project/blob/master/images/14.jpeg" width="500" height="1000"><br/> 
 scroll horizontally for more otpions and Click on appropriate button to check for donations. <br/>
 
 13. Discover page for Organisation <br/>
-![](images/15.jpeg)![](images/16.jpeg)<br/> 
+<img src="https://github.com/krish7777/SWE_Project/blob/master/images/15.jpeg" width="500" height="1000">
+<img src="https://github.com/krish7777/SWE_Project/blob/master/images/16.jpeg" width="500" height="1000"><br/> 
 You can see nearby Donars list here based on distance and accept food to confirm food Accepted. <br/>
 
 14. communtiy page for organisation <br/>
-![](images/2.jpeg) 
-![](images/20.jpeg)<br/> 
+<img src="https://github.com/krish7777/SWE_Project/blob/master/images/2.jpeg" width="500" height="1000">
+<img src="https://github.com/krish7777/SWE_Project/blob/master/images/20.jpeg" width="500" height="1000"><br/> 
 You can see leaderboard and nearby events by clicking on specific card. <br/>
 
 15. Profile page  <br/>
-![](images/18.jpeg)<br/> 
+<img src="https://github.com/krish7777/SWE_Project/blob/master/images/18.jpeg" width="500" height="1000"><br/> 
 You can see your details and other options here ex by clicking on edit option you can edit details. <br/>
-![](images/19.jpeg)<br/> 
+<img src="https://github.com/krish7777/SWE_Project/blob/master/images/19.jpeg" width="500" height="1000"><br/> 
 
 
 ## App Functionality
