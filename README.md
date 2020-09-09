@@ -35,25 +35,25 @@ After ensuring that you have installed the requirements in your machine follow t
        * password: pass
        
 ## App overview
-1. Home Page When App is launched <br/> 
+### 1. Home Page When App is launched <br/> 
 <img src="https://github.com/krish7777/SWE_Project/blob/master/images/7.jpeg" width="500" height="1000"> <br/> 
-click Appropriate button regarding the action you want to perform.<br/>
+### click Appropriate button regarding the action you want to perform.<br/><br/>
 
-2. Donor Login page <br/>
+### 2. Donor Login page <br/>
 <img src="https://github.com/krish7777/SWE_Project/blob/master/images/8.jpeg" width="500" height="1000"><br/> 
-Enter valid credentials to login. <br/> 
+### Enter valid credentials to login. <br/> <br/>
 
-3. Organisation Login page <br/>
+### 3. Organisation Login page <br/>
 <img src="https://github.com/krish7777/SWE_Project/blob/master/images/13.jpeg" width="500" height="1000"><br/> 
-Enter valid credentials to login. <br/>
+### Enter valid credentials to login. <br/><br/>
 
-4. Registration page option <br/>
+### 4. Registration page option <br/>
 <img src="https://github.com/krish7777/SWE_Project/blob/master/images/22.jpeg" width="500" height="1000"><br/> 
-Click on appropriate button for registration. <br/>
+### Click on appropriate button for registration. <br/><br/>
 
-5. Registration page for Donor <br/>
+### 5. Registration page for Donor <br/>
 <img src="https://github.com/krish7777/SWE_Project/blob/master/images/23.jpeg" width="500" height="1000"><br/> 
-Fill in the details and tag your location on map for address purpose then click register. <br/>
+### Fill in the details and tag your location on map for address purpose then click register. <br/><br/>
 
 **UI Consist of 4 pages** <br/>
 **Home** : Shows option for Post Donation or accept Donation respectively for Donor or Organisation.<br/>
@@ -61,47 +61,47 @@ Fill in the details and tag your location on map for address purpose then click 
 **Communtiy** : Displays leaderboard stats.<br/>
 **Profile** : shows your details and provide option to edit detail.<br/>
 
-6. Home page for Donor <br/>
+### 6. Home page for Donor <br/>
 <img src="https://github.com/krish7777/SWE_Project/blob/master/images/4.jpeg" width="500" height="1000"><br/> 
-scroll horizontally for more options and Click on appropriate button for making a donation. <br/>
+### scroll horizontally for more options and Click on appropriate button for making a donation. <br/><br/>
 
-7. Choose location to mark donation <br/>
+### 7. Choose location to mark donation <br/>
 <img src="https://github.com/krish7777/SWE_Project/blob/master/images/9.jpeg" width="500" height="1000"><br/> 
-search and mark the location to add donation then click on add details. <br/>
+### search and mark the location to add donation then click on add details. <br/><br/>
 
-8. Fill Donation Details <br/>
+### 8. Fill Donation Details <br/>
 <img src="https://github.com/krish7777/SWE_Project/blob/master/images/11.jpeg" width="500" height="1000"><br/> 
-Enter Donation details and click on done. <br/>
+### Enter Donation details and click on done. <br/><br/>
 
-9. Discover page Donor<br/>
+### 9. Discover page Donor<br/>
 <img src="https://github.com/krish7777/SWE_Project/blob/master/images/3.jpeg" width="500" height="1000"><br/> 
-You can see nearby NGO list here. <br/>
+### You can see nearby NGO list here. <br/><br/>
 
-10. communtiy page Donor<br/>
+### 10. communtiy page Donor<br/>
 <img src="https://github.com/krish7777/SWE_Project/blob/master/images/2.jpeg" width="500" height="1000"><br/> 
-You can see leaderboard and nearby events by clicking on specific card. <br/>
+### You can see leaderboard and nearby events by clicking on specific card. <br/><br/>
 
-11. Profile page Donor<br/>
+### 11. Profile page Donor<br/>
 <img src="https://github.com/krish7777/SWE_Project/blob/master/images/1.jpeg" width="500" height="1000"><br/> 
-You can see your details and other options here. <br/>
+### You can see your details and other options here. <br/><br/>
 
-12. Home page for organisation <br/>
+### 12. Home page for organisation <br/>
 <img src="https://github.com/krish7777/SWE_Project/blob/master/images/14.jpeg" width="500" height="1000"><br/> 
-scroll horizontally for more otpions and Click on appropriate button to check for donations. <br/>
+### scroll horizontally for more otpions and Click on appropriate button to check for donations. <br/><br/>
 
-13. Discover page for Organisation <br/>
-<img src="https://github.com/krish7777/SWE_Project/blob/master/images/15.jpeg" width="500" height="1000">
+### 13. Discover page for Organisation <br/>
+<img src="https://github.com/krish7777/SWE_Project/blob/master/images/15.jpeg" width="500" height="1000"><br/>
 <img src="https://github.com/krish7777/SWE_Project/blob/master/images/16.jpeg" width="500" height="1000"><br/> 
-You can see nearby Donars list here based on distance and accept food to confirm food Accepted. <br/>
+### You can see nearby Donars list here based on distance and accept food to confirm food Accepted. <br/><br/>
 
-14. communtiy page for organisation <br/>
-<img src="https://github.com/krish7777/SWE_Project/blob/master/images/2.jpeg" width="500" height="1000">
+### 14. communtiy page for organisation <br/>
+<img src="https://github.com/krish7777/SWE_Project/blob/master/images/2.jpeg" width="500" height="1000"><br/>
 <img src="https://github.com/krish7777/SWE_Project/blob/master/images/20.jpeg" width="500" height="1000"><br/> 
-You can see leaderboard and nearby events by clicking on specific card. <br/>
+### You can see leaderboard and nearby events by clicking on specific card. <br/><br/>
 
-15. Profile page  <br/>
+### 15. Profile page  <br/>
 <img src="https://github.com/krish7777/SWE_Project/blob/master/images/18.jpeg" width="500" height="1000"><br/> 
-You can see your details and other options here ex by clicking on edit option you can edit details. <br/>
+### You can see your details and other options here ex by clicking on edit option you can edit details. <br/>
 <img src="https://github.com/krish7777/SWE_Project/blob/master/images/19.jpeg" width="500" height="1000"><br/> 
 
 
