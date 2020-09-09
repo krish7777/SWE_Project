@@ -1,4 +1,4 @@
-# ShareTheRation
+# FoodForAll
 
 This android application aims to establish a connection as well to spread awareness among people about the NGO's in the nearby places around them. We believe that this application can help substantially in our goal to zero hunger and can be a real game changer in this field.
 ##### Requirements: Android Studio, Nodejs, npm
