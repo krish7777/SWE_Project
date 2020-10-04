@@ -18,12 +18,6 @@ app.use(cors())
 
 
 
-app.get('/test', (req, res) => {
-    console.log(req)
-    console.log(req.get('Authorization'))
-    console.log("test route hit")
-    res.json({ "yes": "no" })
-})
 
 app.use('/auth', authRoutes)
 
@@ -36,12 +30,8 @@ app.use((error, req, res, next) => {// Error Handling
 });
 
 
-// const MONGO_URI = "mongodb://127.0.0.1:27017/swe_project" // TEST DB
-//   const MONGO_URI = "mongodb+srv://arpit:arpit@cluster0.lr4ce.mongodb.net/techsite?retryWrites=true&w=majority" //-- ORIGINAL DB
-// const MONGO_URI = "mongodb://127.0.0.1:27017/swe_project" // TEST DB
 const MONGO_URI = "mongodb+srv://arpit:arpit@cluster0.lr4ce.mongodb.net/techsite?retryWrites=true&w=majority" //-- ORIGINAL DB
 
-// const MONGO_URI = "mongodb+srv://arpit:arpit@cluster0.lr4ce.mongodb.net/techsite?retryWrites=true&w=majority"
 mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -76,16 +66,6 @@ const imageStorage = multer.diskStorage({
     }
 })
 
-// const imageFilter = (req, file, cb) => {
-//     if (file.mimetype === 'image/png' ||
-//         file.mimetype === 'image/jpg' ||
-//         file.mimetype === 'image/jpeg'
-//     ) {
-//         cb(null, true);
-//     } else {
-//         cb(null, false);
-//     }
-// }
 
 const uploadImage = multer({
     storage: imageStorage,
